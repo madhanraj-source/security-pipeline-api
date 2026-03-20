@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Stage 3: Samsung Gauss API Analyzer
-Built from actual Gauss API reference script.
-Sends sanitized metadata only — zero source code.
+Sends findings in batches to avoid timeout.
+Merges all batch results into one complete report.
 """
 
 import json
@@ -11,6 +11,7 @@ import hashlib
 import argparse
 import sys
 import re
+import time
 from datetime import datetime, timezone
 
 try:
@@ -21,7 +22,7 @@ except ImportError:
 
 # ── Load .env ─────────────────────────────────────────────────
 if os.path.exists(".env"):
-    for line in open(".env"):
+    for line in open(".env", encoding="utf-8", errors="replace"):
         line = line.strip()
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
@@ -32,6 +33,8 @@ GAUSS_CLIENT_KEY = os.environ.get("GAUSS_CLIENT_KEY", "")
 GAUSS_PASS_KEY   = os.environ.get("GAUSS_PASS_KEY", "")
 GAUSS_MODEL_ID   = os.environ.get("GAUSS_MODEL_ID", "")
 GAUSS_EMAIL      = os.environ.get("GAUSS_EMAIL", "")
+
+BATCH_SIZE = 10  # findings per API call — small to avoid timeout
 
 # ── Strict system prompt ──────────────────────────────────────
 SYSTEM_PROMPT = """You are a senior application security engineer.
@@ -103,7 +106,6 @@ def cache_key(metadata: dict) -> str:
     ]}
     return hashlib.sha256(json.dumps(stable, sort_keys=True).encode()).hexdigest()[:16]
 
-
 def load_cache(path: str, key: str) -> dict | None:
     try:
         cached = json.load(open(path))
@@ -114,14 +116,13 @@ def load_cache(path: str, key: str) -> dict | None:
         pass
     return None
 
-
 def save_cache(path: str, key: str, report: dict):
     report["_cache_key"] = key
     json.dump(report, open(path, "w"), indent=2)
 
 
-# ── Gauss API call ────────────────────────────────────────────
-def call_gauss(metadata: dict) -> dict:
+# ── Single Gauss API batch call ───────────────────────────────
+def call_gauss_batch(findings: list, batch_num: int, total_batches: int) -> dict | None:
     missing = [name for val, name in [
         (GAUSS_ENDPOINT,   "GAUSS_API_URL"),
         (GAUSS_CLIENT_KEY, "GAUSS_CLIENT_KEY"),
@@ -134,81 +135,71 @@ def call_gauss(metadata: dict) -> dict:
             print(f"ERROR: {m} not set in .env")
         sys.exit(1)
 
-    total = metadata.get("scan_metadata", {}).get("total_findings", 0)
-    print(f"  → Calling Gauss API [{GAUSS_MODEL_ID}]")
-    print(f"  → Sending {total} findings — zero source code")
-
     user_message = (
-        "Analyze the following security scan results and return your JSON report.\n\n"
-        "SCAN RESULTS:\n"
-        f"{json.dumps(metadata, indent=2)}\n\n"
+        f"Analyze these security findings (batch {batch_num}/{total_batches}) "
+        f"and return the JSON report.\n\n"
+        f"FINDINGS:\n{json.dumps(findings, indent=2)}\n\n"
         "Return ONLY the JSON object. Start with { and end with }"
     )
 
-    # ── Headers — from official Gauss API sample ──────────────
+    # Headers — from official Gauss API sample
     headers = {
         "Content-Type":           "application/json",
         "x-generative-ai-client": GAUSS_CLIENT_KEY,
-        "x-openapi-token":        GAUSS_PASS_KEY,
+        "x-openapi-token":        f"Bearer {GAUSS_PASS_KEY}",
     }
     if GAUSS_EMAIL:
         headers["x-generative-ai-user-email"] = GAUSS_EMAIL
 
-    # ── Body — from official Gauss API sample ─────────────────
+    # Body — from official Gauss API sample
     body = {
         "modelIds":  [GAUSS_MODEL_ID],
-        "contents":  [user_message],        # list of strings
+        "contents":  [user_message],
         "llmConfig": {
-            "max_new_tokens":     8192,
+            "max_new_tokens":     4096,
             "seed":               None,
             "top_k":              14,
             "top_p":              0.94,
-            "temperature":        0.1,      # low = consistent output
+            "temperature":        0.1,
             "repetition_penalty": 1.04
         },
         "isStream":     False,
         "systemPrompt": SYSTEM_PROMPT.strip()
     }
 
-    # ── Endpoint — from official Gauss API sample ─────────────
     api_url = f"{GAUSS_ENDPOINT}/openapi/chat/v1/messages"
 
-    try:
-        print(f"  → POST {api_url}")
-        resp = requests.post(api_url, headers=headers, json=body, timeout=120)
-        resp.raise_for_status()
-    except requests.exceptions.Timeout:
-        print("ERROR: Gauss API timed out after 120s")
-        sys.exit(1)
-    except requests.exceptions.HTTPError as e:
-        print(f"ERROR: HTTP {e.response.status_code}: {e.response.text[:400]}")
-        sys.exit(1)
-    except requests.exceptions.ConnectionError:
-        print("ERROR: Cannot connect to Gauss API. Check GAUSS_API_URL and network.")
-        sys.exit(1)
+    for attempt in range(3):
+        try:
+            resp = requests.post(api_url, headers=headers, json=body, timeout=90)
+            resp.raise_for_status()
+            return parse_response(resp.json())
 
-    return parse_response(resp.json())
+        except requests.exceptions.Timeout:
+            print(f"  ⚠ Timeout on attempt {attempt+1}/3 — retrying...")
+            time.sleep(10)
+        except requests.exceptions.HTTPError as e:
+            print(f"  ERROR: HTTP {e.response.status_code}: {e.response.text[:300]}")
+            return None
+        except requests.exceptions.ConnectionError:
+            print("  ERROR: Cannot connect to Gauss API.")
+            return None
+
+    print(f"  ⚠ Batch {batch_num} failed after 3 attempts — skipping")
+    return None
 
 
-def parse_response(raw: dict) -> dict:
-    """
-    Parse Gauss response.
-    From official sample: response_data.get('content', 'No content in response')
-    Primary field is 'content'
-    """
+def parse_response(raw: dict) -> dict | None:
     text = ""
 
-    # Primary — official Gauss API response field
+    # Primary field from official Gauss sample
     if "content" in raw:
         content = raw["content"]
         if isinstance(content, str):
             text = content
         elif isinstance(content, list) and content:
             first = content[0]
-            if isinstance(first, str):
-                text = first
-            elif isinstance(first, dict):
-                text = first.get("text", "") or first.get("content", "")
+            text = first if isinstance(first, str) else first.get("text", "")
 
     # Fallbacks
     if not text:
@@ -226,8 +217,8 @@ def parse_response(raw: dict) -> dict:
                 continue
 
     if not text:
-        print(f"  ⚠ Empty response from Gauss: {str(raw)[:200]}")
-        return error_report(str(raw))
+        print(f"  ⚠ Empty response: {str(raw)[:200]}")
+        return None
 
     # Strip markdown fences
     text = text.strip()
@@ -242,24 +233,77 @@ def parse_response(raw: dict) -> dict:
 
     try:
         report = json.loads(text)
-        print("  ✓ Valid JSON report received from Gauss API")
         return report
     except json.JSONDecodeError as e:
-        print(f"  ⚠ JSON parse failed: {e}")
-        print(f"  Preview: {text[:300]}")
-        return error_report(text)
+        print(f"  ⚠ JSON parse failed: {e} — preview: {text[:200]}")
+        return None
 
 
-def error_report(raw: str) -> dict:
+# ── Main Gauss call with batching ─────────────────────────────
+def call_gauss(metadata: dict) -> dict:
+    # Sort by severity
+    findings = metadata.get("findings", [])
+    sev_order = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3}
+    findings = sorted(findings, key=lambda x: sev_order.get(x.get("severity","LOW"), 99))
+
+    # Split into batches
+    batches = [findings[i:i+BATCH_SIZE] for i in range(0, len(findings), BATCH_SIZE)]
+    total_batches = len(batches)
+    print(f"  → {len(findings)} findings split into {total_batches} batch(es) of {BATCH_SIZE}")
+
+    all_findings = []
+    base_report  = None
+
+    for i, batch in enumerate(batches, 1):
+        print(f"  → Batch {i}/{total_batches} ({len(batch)} findings)...")
+        result = call_gauss_batch(batch, i, total_batches)
+
+        if result is None:
+            print(f"  ⚠ Batch {i} failed — skipping")
+            continue
+
+        if base_report is None:
+            base_report = result
+
+        all_findings.extend(result.get("findings", []))
+
+        # Small delay between batches to avoid overloading API
+        if i < total_batches:
+            time.sleep(2)
+
+    if base_report is None:
+        print("ERROR: All batches failed")
+        sys.exit(1)
+
+    # Merge all findings into base report
+    base_report["findings"] = all_findings
+
+    # Recalculate counts from actual findings
+    counts = {"CRITICAL": 0, "HIGH": 0, "MEDIUM": 0, "LOW": 0}
+    for f in all_findings:
+        s = f.get("severity", "LOW").upper()
+        if s in counts:
+            counts[s] += 1
+
+    base_report["executive_summary"]["total_issues"]   = len(all_findings)
+    base_report["executive_summary"]["critical_count"] = counts["CRITICAL"]
+    base_report["executive_summary"]["high_count"]     = counts["HIGH"]
+    base_report["executive_summary"]["medium_count"]   = counts["MEDIUM"]
+    base_report["executive_summary"]["low_count"]      = counts["LOW"]
+
+    print(f"  ✓ Total findings in report: {len(all_findings)}")
+    return base_report
+
+
+def error_report() -> dict:
     return {
         "report_title": "Security Analysis Report",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "parse_error":  True,
-        "raw_response": raw[:2000],
         "executive_summary": {
             "overall_risk": "UNKNOWN", "total_issues": 0,
             "critical_count": 0, "high_count": 0, "medium_count": 0, "low_count": 0,
-            "key_risk_statement": "AI response could not be parsed. Check raw_response field.",
+            "key_risk_statement": "AI analysis failed. Check logs.",
             "immediate_action_required": False,
             "attack_surface_summary": "Unknown"
         },
@@ -313,7 +357,7 @@ def main():
         if report is None:
             report = call_gauss(metadata)
             save_cache(args.cache, key, report)
-            print(f"  ✓ Report cached [{key}]")
+            print(f"  ✓ Cached [{key}]")
 
     json.dump(report, open(args.output, "w"), indent=2)
     risk      = report.get("executive_summary", {}).get("overall_risk", "UNKNOWN")
