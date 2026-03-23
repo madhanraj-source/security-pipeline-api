@@ -55,7 +55,11 @@ SEV_ICON  = {"CRITICAL":"🔴","HIGH":"🟠","MEDIUM":"🟡","LOW":"🟢","UNKNO
 SEV_ORDER = {"CRITICAL":0,"HIGH":1,"MEDIUM":2,"LOW":3}
 
 # ── Load report ──────────────────────────────────────────────
-REPORT_PATH = "./reports/ai_report.json"
+import os
+
+# Try --report argument first, then common locations
+REPORT_PATH = None
+
 if len(sys.argv) > 1:
     try:
         i = sys.argv.index("--report")
@@ -63,11 +67,28 @@ if len(sys.argv) > 1:
     except (ValueError, IndexError):
         pass
 
+# Auto-search common locations if not specified or not found
+if not REPORT_PATH or not Path(REPORT_PATH).exists():
+    # Find the script location and look relative to it
+    script_dir = Path(__file__).parent.parent  # dashboard/ -> pipeline root
+    candidates = [
+        Path(REPORT_PATH) if REPORT_PATH else None,
+        script_dir / "reports" / "ai_report.json",
+        Path.home() / "security-pipeline" / "reports" / "ai_report.json",
+        Path("./reports/ai_report.json"),
+        Path("../reports/ai_report.json"),
+    ]
+    for candidate in candidates:
+        if candidate and candidate.exists():
+            REPORT_PATH = str(candidate)
+            break
+
+if not REPORT_PATH or not Path(REPORT_PATH).exists():
+    st.error(f"Report not found. Run the pipeline first.\n\nSearched locations:\n- {script_dir / 'reports' / 'ai_report.json'}")
+    st.stop()
+
 try:
     report = json.loads(Path(REPORT_PATH).read_text())
-except FileNotFoundError:
-    st.error(f"Report not found at `{REPORT_PATH}`. Run the pipeline first.")
-    st.stop()
 except json.JSONDecodeError:
     st.error("Report JSON is invalid.")
     st.stop()
