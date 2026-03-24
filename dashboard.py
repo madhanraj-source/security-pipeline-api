@@ -202,29 +202,167 @@ if owasp_viols or cwe_refs:
         if not cwe_refs:
             st.success("✅ No CWE references")
 
-# ── Findings ──────────────────────────────────────────────────
+# ── Findings — Separated by source ───────────────────────────
 st.markdown("---")
-st.markdown('<div class="section-title">🔍 Findings</div>', unsafe_allow_html=True)
 
-filtered = [
-    f for f in findings
-    if f.get("severity","LOW").upper() in sel_sev
-    and f.get("category","General") in sel_cats
-]
+# Split findings by source
+gitleaks_findings = [f for f in findings if f.get("source") == "gitleaks"
+                     and f.get("severity","LOW").upper() in sel_sev
+                     and f.get("category","General") in sel_cats]
+sonar_findings    = [f for f in findings if f.get("source") == "sonarqube"
+                     and f.get("severity","LOW").upper() in sel_sev
+                     and f.get("category","General") in sel_cats]
 
-if sort_by == "Severity":
-    filtered.sort(key=lambda x: SEV_ORDER.get(x.get("severity","LOW").upper(), 99))
-elif sort_by == "Priority Score":
-    filtered.sort(key=lambda x: -x.get("priority", 0))
-elif sort_by == "File":
-    filtered.sort(key=lambda x: x.get("file",""))
+def sort_findings(lst):
+    if sort_by == "Severity":
+        lst.sort(key=lambda x: SEV_ORDER.get(x.get("severity","LOW").upper(), 99))
+    elif sort_by == "Priority Score":
+        lst.sort(key=lambda x: -x.get("priority", 0))
+    elif sort_by == "File":
+        lst.sort(key=lambda x: x.get("file",""))
+    return lst
 
-if not filtered:
-    st.success("✅ No findings match current filters.")
+gitleaks_findings = sort_findings(gitleaks_findings)
+sonar_findings    = sort_findings(sonar_findings)
+
+# ── Gitleaks Section ──────────────────────────────────────────
+st.markdown('<div class="section-title">🔑 Gitleaks — Secrets & Credentials</div>', unsafe_allow_html=True)
+
+if not gitleaks_findings:
+    st.success("✅ No secrets or credentials detected by Gitleaks.")
 else:
-    st.caption(f"Showing {len(filtered)} of {len(findings)} findings")
+    st.caption(f"{len(gitleaks_findings)} secret(s) found")
+    for finding in gitleaks_findings:
+        sev      = finding.get("severity","LOW").upper()
+        color    = SEV_COLOR.get(sev,"#8b949e")
+        icon     = SEV_ICON.get(sev,"⚪")
+        title    = finding.get("title","Unknown")
+        file_    = finding.get("file","unknown")
+        line_    = finding.get("line",0)
+        rule_id  = finding.get("id","")
+        cwe      = finding.get("cwe","N/A")
+        owasp    = finding.get("owasp","N/A")
+        priority = finding.get("priority", 0)
 
-    for finding in filtered:
+        # Expand CRITICAL issues by default
+        with st.expander(f"{icon} [{sev}]  {title}  —  {file_}:{line_}", expanded=(sev=="CRITICAL")):
+
+            col_l, col_r = st.columns([3, 1])
+
+            with col_l:
+                # What it means
+                st.markdown("**🔎 What it means**")
+                st.markdown(finding.get("what_it_means", "No description."))
+
+                # Attack scenario
+                scenario = finding.get("attack_scenario","")
+                if scenario:
+                    st.markdown("**🎯 Attack Scenario**")
+                    st.markdown(f"> {scenario}")
+
+                # Business impact
+                impact = finding.get("business_impact","")
+                if impact:
+                    st.markdown(f"**💼 Business Impact:** {impact}")
+
+                st.markdown("---")
+
+                # Fix summary
+                st.markdown(f"**✅ Fix:** {finding.get('fix_summary','See steps below.')}")
+
+                # Fix steps — handle list or string
+                if show_steps:
+                    steps = finding.get("fix_steps", [])
+                    if isinstance(steps, str):
+                        steps = [s.strip() for s in steps.split("\n") if s.strip()]
+                    if steps:
+                        st.markdown("**🔧 Fix Steps**")
+                        nums = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩"]
+                        for i, step in enumerate(steps, 1):
+                            num = nums[i-1] if i <= len(nums) else str(i)
+                            st.markdown(
+                                f'<div class="step-item">{num} &nbsp; {step}</div>',
+                                unsafe_allow_html=True
+                            )
+
+                # Code example — handle multiple BEFORE/AFTER formats
+                if show_code:
+                    code_ex = finding.get("fix_code_example", "")
+                    if code_ex and code_ex not in ("N/A", "", None):
+                        st.markdown("**💻 Code Fix Example**")
+                        # Detect separator: "| AFTER:" or "\nAFTER:" or "AFTER:"
+                        sep = None
+                        for s in ["| AFTER:", "\nAFTER:", " AFTER:"]:
+                            if s in code_ex:
+                                sep = s
+                                break
+                        if sep:
+                            parts  = code_ex.split(sep, 1)
+                            before = parts[0].replace("BEFORE:","").strip()
+                            after  = parts[1].strip()
+                            b1, b2 = st.columns(2)
+                            with b1:
+                                st.markdown("🔴 **Before (vulnerable)**")
+                                st.code(before, language="python")
+                            with b2:
+                                st.markdown("🟢 **After (secure)**")
+                                st.code(after, language="python")
+                        else:
+                            # Show as single code block
+                            clean = code_ex.replace("BEFORE:","").replace("AFTER:","\n# ✅ Fixed:\n")
+                            st.code(clean, language="python")
+
+                # References
+                refs = finding.get("references", [])
+                if refs:
+                    st.markdown("**📚 References**")
+                    for ref in refs:
+                        st.markdown(f"- {ref}")
+
+            with col_r:
+                st.markdown(
+                    f'<div style="background:{color}18; border:1px solid {color}; border-radius:8px; '
+                    f'padding:14px; text-align:center; margin-bottom:12px;">'
+                    f'<div style="font-size:24px">{icon}</div>'
+                    f'<div style="color:{color}; font-weight:700; font-size:16px">{sev}</div>'
+                    f'</div>', unsafe_allow_html=True
+                )
+
+                def pill(label, value):
+                    return f'<div class="meta-pill"><b>{label}:</b> {value}</div>'
+
+                st.markdown(
+                    pill("Rule", f"<code>{rule_id}</code>") +
+                    pill("File", f"<code>{file_}</code>") +
+                    pill("Line", f"<code>{line_}</code>") +
+                    pill("Category", finding.get("category","General")),
+                    unsafe_allow_html=True
+                )
+
+                # CWE link — extract only digits for URL
+                import re as _re
+                cwe_digits = _re.search(r'\d+', str(cwe))
+                if cwe_digits and cwe != "N/A":
+                    cwe_num = cwe_digits.group()
+                    st.markdown(f"🔗 [**{cwe}**](https://cwe.mitre.org/data/definitions/{cwe_num}.html)")
+                else:
+                    st.markdown(f'<div class="meta-pill">CWE: {cwe}</div>', unsafe_allow_html=True)
+
+                st.markdown(f'<div class="meta-pill">OWASP: {owasp}</div>', unsafe_allow_html=True)
+
+                if priority:
+                    st.progress(priority/10, text=f"Priority: {priority}/10")
+
+
+# ── SonarQube Section ─────────────────────────────────────────
+st.markdown("---")
+st.markdown('<div class="section-title">🔍 SonarQube — Code Security & Hotspots</div>', unsafe_allow_html=True)
+
+if not sonar_findings:
+    st.success("✅ No issues detected by SonarQube.")
+else:
+    st.caption(f"{len(sonar_findings)} issue(s) found")
+    for finding in sonar_findings:
         sev      = finding.get("severity","LOW").upper()
         color    = SEV_COLOR.get(sev,"#8b949e")
         icon     = SEV_ICON.get(sev,"⚪")
@@ -373,7 +511,7 @@ if recs:
 # ── Footer ────────────────────────────────────────────────────
 st.markdown("""
 <div style="text-align:center; color:#484f58; padding:30px 0 10px; font-size:12px;">
-    AI Security Pipeline &nbsp;|&nbsp; CodeQL + Gitleaks + SonarQube → Samsung Gauss AI<br>
+    AI Security Pipeline &nbsp;|&nbsp; Gitleaks + SonarQube → Samsung Gauss AI<br>
     <em>Source code is never transmitted. Only security metadata is analyzed.</em>
 </div>
 """, unsafe_allow_html=True)
