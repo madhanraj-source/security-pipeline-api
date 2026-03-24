@@ -1,0 +1,17 @@
+# Check what's in each findings file
+python3 -c "
+import json
+for name, path in [
+    ('CodeQL',    'reports/codeql_findings.json'),
+    ('Gitleaks',  'reports/gitleaks_findings.json'),
+    ('SonarQube', 'reports/sonar_findings.json'),
+    ('Sanitized', 'reports/sanitized_meta.json'),
+]:
+    try:
+        d = json.load(open(path))
+        findings = d if isinstance(d, list) else d.get('findings', [])
+        sources = set(f.get('source','?') for f in findings) if isinstance(findings[0], dict) and findings else set()
+        print(f'{name}: {len(findings)} findings {sources}')
+    except Exception as e:
+        print(f'{name}: ERROR — {e}')
+"
