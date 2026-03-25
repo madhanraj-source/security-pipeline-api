@@ -1,111 +1,135 @@
 #!/usr/bin/env python3
 """
 Stage 2: Metadata Stripper
-Parses outputs from CodeQL, Gitleaks, and SonarQube.
-Strips ALL raw source code — only structured metadata forwarded to Gemini.
+Parses Semgrep + Trufflehog + Bearer CLI outputs.
+Strips ALL source code — only metadata forwarded to Gauss API.
 """
 
 import json
 import argparse
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 
 
-def strip_codeql(path: str) -> list[dict]:
+def strip_semgrep(path: str) -> list[dict]:
+    """Parse Semgrep JSON output — drop code snippets."""
+    SEV_MAP = {
+        "ERROR":   "HIGH",
+        "WARNING": "MEDIUM",
+        "INFO":    "LOW",
+    }
     try:
         data = json.load(open(path))
-        if not isinstance(data, list):
-            return []
-        return [{
-            "source":      "codeql",
-            "rule_id":     f.get("rule_id", "UNKNOWN"),
-            "title":       f.get("title", ""),
-            "severity":    f.get("severity", "MEDIUM").upper(),
-            "category":    f.get("category", "Security"),
-            "file":        Path(f.get("file", "unknown")).name,
-            "line":        f.get("line", 0),
-            "description": f.get("description", "")[:300],
-            "cwe":         f.get("cwe", "N/A"),
-            "owasp":       f.get("owasp", "N/A"),
-            "precision":   f.get("precision", "medium"),
-        } for f in data]
-    except (FileNotFoundError, json.JSONDecodeError):
-        return []
-
-
-def strip_gitleaks(path: str) -> list[dict]:
-    try:
-        data = json.load(open(path))
-        if not isinstance(data, list):
-            return []
+        results = data.get("results", [])
         findings = []
-        for f in data:
+        for r in results:
+            extra   = r.get("extra", {})
+            meta    = extra.get("metadata", {})
+            sev_raw = extra.get("severity", "WARNING")
+            severity = SEV_MAP.get(sev_raw.upper(), "MEDIUM")
+
+            # Upgrade to CRITICAL if CWE is high severity
+            cwe_list = meta.get("cwe", [])
+            if isinstance(cwe_list, str):
+                cwe_list = [cwe_list]
+            cwe = cwe_list[0] if cwe_list else "N/A"
+
+            owasp_list = meta.get("owasp", [])
+            if isinstance(owasp_list, str):
+                owasp_list = [owasp_list]
+            owasp = owasp_list[0] if owasp_list else "N/A"
+
             findings.append({
-                "source":      "gitleaks",
-                "rule_id":     f.get("RuleID", "UNKNOWN"),
-                "title":       f"Exposed Secret: {f.get('Description', 'Credential')}",
-                "severity":    "CRITICAL",
-                "category":    "Secrets & Credentials",
-                "file":        Path(f.get("File", "unknown")).name,
-                "line":        f.get("StartLine", 0),
-                "description": f.get("Description", ""),
-                "cwe":         "CWE-798",
-                "owasp":       "A07:2021 – Identification Failures",
-                "precision":   "high",
-                # Secret, Match, Entropy — deliberately excluded
+                "source":      "semgrep",
+                "rule_id":     r.get("check_id", "UNKNOWN"),
+                "title":       extra.get("message", r.get("check_id", ""))[:150],
+                "severity":    severity,
+                "category":    meta.get("category", "Security"),
+                "file":        Path(r.get("path", "unknown")).name,
+                "line":        r.get("start", {}).get("line", 0),
+                "description": extra.get("message", "")[:300],
+                "cwe":         cwe,
+                "owasp":       owasp,
+                "confidence":  meta.get("confidence", "medium"),
+                # 'lines' code snippet — deliberately excluded
             })
         return findings
     except (FileNotFoundError, json.JSONDecodeError):
         return []
 
 
-def strip_sonar(path: str) -> list[dict]:
-    """
-    Parse SonarQube issues API response.
-    Drops: flows, textRange, messageFormattings, component paths with content.
-    """
-    SEV_MAP = {
-        "BLOCKER":  "CRITICAL",
-        "CRITICAL": "HIGH",
-        "MAJOR":    "HIGH",
-        "MINOR":    "MEDIUM",
-        "INFO":     "LOW",
-    }
+def strip_trufflehog(path: str) -> list[dict]:
+    """Parse Trufflehog JSON output — drop actual secret values."""
     try:
         data = json.load(open(path))
         if not isinstance(data, list):
             return []
         findings = []
-        for issue in data:
-            # File — strip full path to just filename
-            component = issue.get("component", "")
-            file_name = Path(component.split(":")[-1]).name if ":" in component else component
+        for f in data:
+            source_meta = f.get("SourceMetadata", {}).get("Data", {})
+            file_info   = source_meta.get("Filesystem", {})
+            findings.append({
+                "source":      "trufflehog",
+                "rule_id":     f.get("DetectorName", "UNKNOWN"),
+                "title":       f"Exposed Secret: {f.get('DetectorName', 'Credential')}",
+                "severity":    "CRITICAL",
+                "category":    "Secrets & Credentials",
+                "file":        Path(file_info.get("file", "unknown")).name,
+                "line":        file_info.get("line", 0),
+                "description": f"Detector: {f.get('DetectorName','')} — Type: {f.get('DetectorType','')}",
+                "cwe":         "CWE-798",
+                "owasp":       "A07:2021",
+                "verified":    f.get("Verified", False),
+                # Raw, DecoderName, Redacted — deliberately excluded
+            })
+        return findings
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
 
-            # Severity
-            raw_sev  = issue.get("severity", "MAJOR")
-            severity = SEV_MAP.get(raw_sev, "MEDIUM")
 
-            # Security standards tags
-            sec_standards = issue.get("securityStandards", [])
-            cwe   = next((s for s in sec_standards if s.startswith("cwe:")), "N/A")
-            owasp = next((s for s in sec_standards if "owasp" in s.lower()), "N/A")
-            if cwe != "N/A":
-                cwe = "CWE-" + cwe.replace("cwe:", "")
+def strip_bearer(path: str) -> list[dict]:
+    """Parse Bearer CLI JSON output — drop code snippets."""
+    SEV_MAP = {
+        "critical": "CRITICAL",
+        "high":     "HIGH",
+        "medium":   "MEDIUM",
+        "low":      "LOW",
+        "warning":  "MEDIUM",
+    }
+    try:
+        data = json.load(open(path))
+        # Bearer output can be dict with 'findings' or a list
+        if isinstance(data, dict):
+            raw_findings = data.get("findings", data.get("high", []) +
+                                   data.get("medium", []) +
+                                   data.get("low", []) +
+                                   data.get("critical", []))
+        else:
+            raw_findings = data
+
+        findings = []
+        for f in raw_findings:
+            # Handle both flat and nested structures
+            sev_raw  = f.get("severity", f.get("level", "medium"))
+            severity = SEV_MAP.get(str(sev_raw).lower(), "MEDIUM")
+
+            cwe_ids  = f.get("cwe_ids", f.get("cwe", []))
+            if isinstance(cwe_ids, str):
+                cwe_ids = [cwe_ids]
+            cwe = f"CWE-{cwe_ids[0]}" if cwe_ids else "N/A"
 
             findings.append({
-                "source":      "sonarqube",
-                "rule_id":     issue.get("rule", "UNKNOWN"),
-                "title":       issue.get("message", "")[:150],
+                "source":      "bearer",
+                "rule_id":     f.get("rule_id", f.get("id", "UNKNOWN")),
+                "title":       f.get("title", f.get("description", ""))[:150],
                 "severity":    severity,
-                "category":    issue.get("type", "VULNERABILITY"),
-                "file":        file_name,
-                "line":        issue.get("line", 0),
-                "description": issue.get("message", "")[:300],
+                "category":    f.get("category_groups", ["Security"])[0] if f.get("category_groups") else "Security",
+                "file":        Path(f.get("filename", f.get("file", "unknown"))).name,
+                "line":        f.get("line_number", f.get("line", 0)),
+                "description": f.get("description", "")[:300],
                 "cwe":         cwe,
-                "owasp":       owasp,
-                "effort":      issue.get("effort", ""),
-                "debt":        issue.get("debt", ""),
-                # flows, textRange, code content — deliberately excluded
+                "owasp":       f.get("owasp_ids", ["N/A"])[0] if f.get("owasp_ids") else "N/A",
+                # source_code, code_extract — deliberately excluded
             })
         return findings
     except (FileNotFoundError, json.JSONDecodeError):
@@ -122,36 +146,32 @@ def build_payload(findings: list[dict]) -> dict:
         if s in counts:
             counts[s] += 1
 
-    sources = list({f["source"] for f in findings})
-
     return {
         "scan_metadata": {
-            "timestamp":       datetime.utcnow().isoformat() + "Z",
+            "timestamp":       datetime.now(timezone.utc).isoformat(),
             "total_findings":  len(findings),
             "severity_counts": counts,
-            "sources_used":    sources,
+            "sources_used":    list({f["source"] for f in findings}),
         },
         "findings": findings
     }
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Strip raw code from scanner outputs")
-    parser.add_argument("--codeql",   default="./reports/codeql_findings.json")
-    parser.add_argument("--gitleaks", default="./reports/gitleaks_findings.json")
-    parser.add_argument("--sonar",    default="./reports/sonar_findings.json")
-    parser.add_argument("--output",   default="./reports/sanitized_meta.json")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--semgrep",    default="./reports/semgrep_findings.json")
+    parser.add_argument("--trufflehog", default="./reports/trufflehog_findings.json")
+    parser.add_argument("--bearer",     default="./reports/bearer_findings.json")
+    parser.add_argument("--output",     default="./reports/sanitized_meta.json")
     args = parser.parse_args()
 
-    codeql_f   = strip_codeql(args.codeql)
-    gitleaks_f = strip_gitleaks(args.gitleaks)
-    sonar_f    = strip_sonar(args.sonar)
+    semgrep_f    = strip_semgrep(args.semgrep)
+    trufflehog_f = strip_trufflehog(args.trufflehog)
+    bearer_f     = strip_bearer(args.bearer)
+    all_f        = semgrep_f + trufflehog_f + bearer_f
 
-    all_findings = codeql_f + gitleaks_f + sonar_f
-    payload      = build_payload(all_findings)
-
-    with open(args.output, "w") as f:
-        json.dump(payload, f, indent=2)
+    payload = build_payload(all_f)
+    json.dump(payload, open(args.output, "w"), indent=2)
 
     m = payload["scan_metadata"]
     print(f"  ✓ {m['total_findings']} findings sanitized")
@@ -160,7 +180,7 @@ def main():
           f"MEDIUM={m['severity_counts']['MEDIUM']} "
           f"LOW={m['severity_counts']['LOW']}")
     print(f"  ✓ Sources: {', '.join(m['sources_used']) or 'none'}")
-    print(f"  ✓ No source code in output — safe for AI")
+    print(f"  ✓ No source code in output")
 
 
 if __name__ == "__main__":
