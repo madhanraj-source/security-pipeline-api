@@ -1,23 +1,84 @@
-# AI Security Pipeline — Office
-## CodeQL + Gitleaks + SonarQube → Samsung Gauss API → Streamlit Dashboard
+# Modern AI Security Pipeline
+## Semgrep + Trufflehog + Bearer CLI → Samsung Gauss API → Dashboard
+
+---
+
+## Why These Tools?
+
+| Tool | Used By | What it finds |
+|---|---|---|
+| **Semgrep** | Dropbox, Slack, Netflix, Figma | SAST — SQLi, XSS, OWASP Top 10, logic flaws |
+| **Trufflehog** | GitHub, GitLab | Secrets — API keys, tokens, passwords, private keys |
+| **Bearer CLI** | Security-focused companies | API security — PII exposure, auth issues, data leakage |
 
 ---
 
 ## Quick Start
 
 ```bash
-# 1. Install all tools (run once)
+# 1. Install tools (run once)
 bash setup.sh
 source ~/.bashrc
 
-# 2. Configure credentials
+# 2. Configure
 cp .env.example .env
-nano .env
+nano .env   # fill in Gauss API keys
 
 # 3. Run
 bash run_pipeline.sh /path/to/your/project
 
-# 4. Open dashboard → http://localhost:8501
+# 4. Dashboard → http://localhost:8501
+```
+
+---
+
+## Pipeline Flow
+
+```
+Your Code (100% local — never sent to AI)
+    │
+    ├─ Semgrep      → SAST, OWASP Top 10, 3000+ security rules
+    ├─ Trufflehog   → Secrets, credentials, API keys
+    └─ Bearer CLI   → API security, data privacy, PII
+         │
+         ▼
+    strip_metadata.py → strips ALL source code
+         │  (only: file, line, rule, severity, CWE, description)
+         ▼
+    gauss_analyzer.py → Samsung Gauss API (batches of 3)
+         │
+         ▼
+    dashboard.py → Streamlit UI with 3 separate sections:
+                   🔎 Semgrep | 🔑 Trufflehog | 🛡️ Bearer CLI
+```
+
+---
+
+## Language Support
+
+| Language | Semgrep | Trufflehog | Bearer CLI |
+|---|---|---|---|
+| Python | ✅ Full | ✅ | ✅ Full |
+| JavaScript/TypeScript | ✅ Full | ✅ | ✅ Full |
+| Java | ✅ Full | ✅ | ✅ Full |
+| Go | ✅ Full | ✅ | ✅ Full |
+| Ruby | ✅ Full | ✅ | ✅ Full |
+| PHP | ✅ Full | ✅ | ✅ Full |
+| C/C++ | ✅ Full | ✅ | ⚠️ Limited |
+| C# | ✅ Full | ✅ | ❌ |
+| Rust | ✅ Full | ✅ | ❌ |
+
+---
+
+## .env Values
+
+```bash
+GAUSS_API_URL=https://YOUR_SAMSUNG_DOMAIN
+GAUSS_CLIENT_KEY=your-client-key
+GAUSS_PASS_KEY=Bearer your-token
+GAUSS_MODEL_ID=your-model-id
+GAUSS_EMAIL=your-email@samsung.com
+DASHBOARD_PORT=8501
 ```
 
 ---
@@ -25,89 +86,21 @@ bash run_pipeline.sh /path/to/your/project
 ## Project Structure
 
 ```
-office-pipeline/
-├── .env.example              ← credentials template
-├── .env                      ← your credentials (never commit this)
-├── setup.sh                  ← install all tools (run once)
-├── run_pipeline.sh           ← single command to run everything
+modern-pipeline/
+├── .env.example
+├── setup.sh              ← installs Semgrep, Trufflehog, Bearer CLI
+├── run_pipeline.sh       ← single command entry point
 ├── scripts/
-│   ├── scanner.sh            ← CodeQL + Gitleaks + SonarQube
-│   ├── strip_metadata.py     ← strips ALL source code from findings
-│   └── gauss_analyzer.py     ← Samsung Gauss API with strict JSON schema
+│   ├── scanner.sh        ← runs all 3 scanners
+│   ├── strip_metadata.py ← removes source code
+│   └── gauss_analyzer.py ← Gauss API with batching + caching
 ├── dashboard/
-│   └── dashboard.py          ← Streamlit UI
-└── reports/                  ← auto-created on first run
-    ├── codeql_sarif.json
-    ├── codeql_findings.json
-    ├── gitleaks_findings.json
-    ├── sonar_findings.json
-    ├── sonar_output.log
-    ├── sanitized_meta.json   ← what gets sent to Gauss (no source code)
-    ├── ai_report.json        ← final AI report
+│   └── dashboard.py      ← 3 separate tool sections
+└── reports/
+    ├── semgrep_findings.json
+    ├── trufflehog_findings.json
+    ├── bearer_findings.json
+    ├── sanitized_meta.json
+    ├── ai_report.json
     └── .ai_cache.json
-```
-
----
-
-## .env Values
-
-| Variable | Description |
-|---|---|
-| `GAUSS_API_URL` | Base URL e.g. `https://your-domain.samsung.com` |
-| `GAUSS_CLIENT_KEY` | `x-generative-ai-client` header value |
-| `GAUSS_PASS_KEY` | `x-openapi-token` header value |
-| `GAUSS_MODEL_ID` | Your model ID string |
-| `GAUSS_EMAIL` | `x-generative-ai-user-email` header value |
-| `SONAR_HOST_URL` | `http://localhost:9000` |
-| `SONAR_TOKEN` | SonarQube user token (not project token) |
-| `SONAR_PROJECT_KEY` | Must match exactly in SonarQube UI |
-| `SONAR_USER` | SonarQube username (for hotspots API) |
-| `SONAR_PASSWORD` | SonarQube password (for hotspots API) |
-
----
-
-## Run Options
-
-```bash
-# Auto-detect language (default)
-bash run_pipeline.sh /path/to/project
-
-# Specify language
-bash run_pipeline.sh /path/to/project python
-bash run_pipeline.sh /path/to/project java
-
-# Force fresh AI report (skip cache)
-python3 scripts/gauss_analyzer.py --no-cache
-
-# Dashboard only (reuse existing report)
-streamlit run dashboard/dashboard.py --server.port 8501
-```
-
----
-
-## Gauss API Request Format
-
-```python
-headers = {
-    "x-generative-ai-client":       CLIENT_KEY,
-    "x-openapi-token":               PASS_KEY,
-    "x-generative-ai-user-email":    EMAIL,
-}
-
-body = {
-    "modelIds":     [MODEL_ID],
-    "contents":     ["your message string"],
-    "llmConfig": {
-        "max_new_tokens": 8192,
-        "temperature":    0.1,
-        "top_k":          14,
-        "top_p":          0.94,
-        "repetition_penalty": 1.04,
-        "seed": None
-    },
-    "isStream":     False,
-    "systemPrompt": "..."
-}
-
-# Response: response_data.get('content')
 ```
