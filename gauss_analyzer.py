@@ -23,7 +23,7 @@ except ImportError:
 
 # ── Load .env ─────────────────────────────────────────────────
 if os.path.exists(".env"):
-    for line in open(".env", encoding="utf-8", errors="replace"):
+    for line in open(".env", encoding="utf-8", errors="ignore"):
         line = line.strip()
         if line and not line.startswith("#") and "=" in line:
             k, v = line.split("=", 1)
