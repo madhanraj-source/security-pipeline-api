@@ -5,8 +5,12 @@
 # Usage: bash run_pipeline.sh /path/to/your/project
 # ============================================================
 
+# Always run from the directory where this script lives
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
 TARGET="${1:-.}"
-REPORT_DIR="./reports"
+REPORT_DIR="$SCRIPT_DIR/reports"
 
 # Load .env
 if [ ! -f .env ]; then
@@ -26,16 +30,19 @@ echo "║       Modern AI Security Pipeline               ║"
 echo "║  Semgrep + Trufflehog + Bearer → Gauss AI       ║"
 echo "╚══════════════════════════════════════════════════╝"
 echo "  Target : $TARGET"
+echo "  Dir    : $SCRIPT_DIR"
 echo ""
+
+mkdir -p "$REPORT_DIR"
 
 # ── Stage 1: Scan ─────────────────────────────────────────────
 echo "▶ Stage 1/3 — Local Security Scans"
-bash scripts/scanner.sh "$TARGET" "$REPORT_DIR"
+bash "$SCRIPT_DIR/scripts/scanner.sh" "$TARGET" "$REPORT_DIR"
 
 # ── Stage 2: Gauss AI Analysis ────────────────────────────────
 echo ""
 echo "▶ Stage 2/3 — Samsung Gauss AI Analysis"
-python3 scripts/gauss_analyzer.py \
+python3 "$SCRIPT_DIR/scripts/gauss_analyzer.py" \
     --input  "$REPORT_DIR/sanitized_meta.json" \
     --output "$REPORT_DIR/ai_report.json" \
     --cache  "$REPORT_DIR/.ai_cache.json"
@@ -46,11 +53,11 @@ echo "▶ Stage 3/3 — Launching Dashboard"
 pkill -f "streamlit run" 2>/dev/null || true
 sleep 1
 
-nohup streamlit run dashboard/dashboard.py \
+nohup streamlit run "$SCRIPT_DIR/dashboard/dashboard.py" \
     --server.port="$PORT" \
     --server.headless=true \
     --server.address=0.0.0.0 \
-    -- --report "$(pwd)/$REPORT_DIR/ai_report.json" \
+    -- --report "$REPORT_DIR/ai_report.json" \
     > "$REPORT_DIR/dashboard.log" 2>&1 &
 
 sleep 3
