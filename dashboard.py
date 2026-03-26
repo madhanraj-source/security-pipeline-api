@@ -77,8 +77,7 @@ if len(sys.argv) > 1:
 if not REPORT_PATH or not Path(REPORT_PATH).exists():
     script_dir = Path(__file__).parent.parent
     candidates = [
-        script_dir / "reports" / "ai_report.json",
-        Path.home() / "security-pipeline" / "reports" / "ai_report.json",
+        script_dir / "reports" / "ai_report.json",  # always correct relative to script
         Path("./reports/ai_report.json"),
         Path("../reports/ai_report.json"),
     ]
