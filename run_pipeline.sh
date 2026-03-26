@@ -1,14 +1,12 @@
 #!/bin/bash
 # ============================================================
 # AI Security Pipeline — Office (Samsung Gauss API)
-# Usage: bash run_pipeline.sh /path/to/your/project [language]
-# Language: auto (default) | python | java | javascript | cpp | go
+# Usage: bash run_pipeline.sh /path/to/your/project
+# Tools: Gitleaks + SonarQube → Gauss AI → Dashboard
 # ============================================================
 
 TARGET="${1:-.}"
-LANGUAGE="${2:-auto}"
 REPORT_DIR="./reports"
-CODEQL_DB="./codeql-db"
 
 # Load .env
 if [ ! -f .env ]; then
@@ -16,6 +14,7 @@ if [ ! -f .env ]; then
     echo "  Run: cp .env.example .env  then fill in your keys."
     exit 1
 fi
+sed -i 's/\r//' .env
 source .env
 
 PORT="${DASHBOARD_PORT:-8501}"
@@ -24,14 +23,14 @@ START=$(date +%s)
 echo ""
 echo "╔══════════════════════════════════════════════════╗"
 echo "║         AI Security Pipeline                    ║"
-echo "║  CodeQL + Gitleaks + SonarQube → Gauss AI       ║"
+echo "║     Gitleaks + SonarQube → Gauss AI             ║"
 echo "╚══════════════════════════════════════════════════╝"
 echo "  Target : $TARGET"
 echo ""
 
 # ── Stage 1: Scan ─────────────────────────────────────────────
 echo "▶ Stage 1/3 — Local Security Scans"
-bash scripts/scanner.sh "$TARGET" "$REPORT_DIR" "$CODEQL_DB" "$LANGUAGE"
+bash scripts/scanner.sh "$TARGET" "$REPORT_DIR"
 
 # ── Stage 2: Gauss AI Analysis ────────────────────────────────
 echo ""
@@ -51,7 +50,7 @@ nohup streamlit run dashboard/dashboard.py \
     --server.port="$PORT" \
     --server.headless=true \
     --server.address=0.0.0.0 \
-    -- --report "$REPORT_DIR/ai_report.json" \
+    -- --report "$(pwd)/$REPORT_DIR/ai_report.json" \
     > "$REPORT_DIR/dashboard.log" 2>&1 &
 
 sleep 3
