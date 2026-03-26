@@ -5,8 +5,12 @@
 # 100% local — raw code never sent to AI
 # ============================================================
 
+# Always run from pipeline root directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$SCRIPT_DIR"
+
 TARGET_DIR="${1:-.}"
-REPORT_DIR="${2:-./reports}"
+REPORT_DIR="${2:-$SCRIPT_DIR/reports}"
 
 # Load .env
 if [ -f .env ]; then
@@ -138,7 +142,7 @@ fi
 # ══════════════════════════════════════════════════
 echo ""
 echo "  → Sanitizing — stripping all source code..."
-python3 scripts/strip_metadata.py \
+python3 "$SCRIPT_DIR/scripts/strip_metadata.py" \
     --semgrep    "$REPORT_DIR/semgrep_findings.json" \
     --trufflehog "$REPORT_DIR/trufflehog_findings.json" \
     --bearer     "$REPORT_DIR/bearer_findings.json" \
