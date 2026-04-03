@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 """
-Modern AI Security Pipeline — Dashboard
-Streamlit UI with separate sections for:
-  - Semgrep (SAST)
-  - Trufflehog (Secrets)
-  - Bearer CLI (API Security)
+Modern AI Security Pipeline v2 — Dashboard
+Port: 8502
+Severity-categorized findings from all 5 tools.
+Each finding includes AI-generated fix with steps and code examples.
 """
 
 import json
 import sys
 import re
-import os
 from pathlib import Path
 
 try:
@@ -19,54 +17,50 @@ except ImportError:
     print("Install: pip install streamlit")
     sys.exit(1)
 
-# ── Page config ───────────────────────────────────────────────
 st.set_page_config(
-    page_title="AI Security Report",
+    page_title="AI Security Report v2",
     page_icon="🔐",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# ── Styling ───────────────────────────────────────────────────
 st.markdown("""
 <style>
     [data-testid="stAppViewContainer"] { background: #0d1117; }
     [data-testid="stSidebar"]          { background: #161b22; }
 
-    .badge-critical { background:#ff1744; color:#fff; padding:3px 10px; border-radius:12px; font-size:11px; font-weight:700; }
-    .badge-high     { background:#ff6d00; color:#fff; padding:3px 10px; border-radius:12px; font-size:11px; font-weight:700; }
-    .badge-medium   { background:#ffd600; color:#000; padding:3px 10px; border-radius:12px; font-size:11px; font-weight:700; }
-    .badge-low      { background:#00e676; color:#000; padding:3px 10px; border-radius:12px; font-size:11px; font-weight:700; }
+    .sev-critical { background:#1a0008; border-left:4px solid #ff1744; padding:14px 18px; border-radius:8px; margin:6px 0; }
+    .sev-high     { background:#1a0d00; border-left:4px solid #ff6d00; padding:14px 18px; border-radius:8px; margin:6px 0; }
+    .sev-medium   { background:#1a1500; border-left:4px solid #ffd600; padding:14px 18px; border-radius:8px; margin:6px 0; }
+    .sev-low      { background:#001a0d; border-left:4px solid #00e676; padding:14px 18px; border-radius:8px; margin:6px 0; }
 
-    .step-item  { background:#161b22; border-radius:6px; padding:8px 12px; margin:4px 0; font-size:13px; }
-    .meta-pill  { background:#21262d; color:#8b949e; padding:3px 9px; border-radius:10px; font-size:11px; margin:2px; display:inline-block; }
+    .step-item { background:#161b22; border-radius:6px; padding:8px 12px; margin:4px 0; font-size:13px; }
+    .meta-pill { background:#21262d; color:#8b949e; padding:3px 9px; border-radius:10px; font-size:11px; margin:2px; display:inline-block; }
+    .fix-box   { background:#0d2818; border:1px solid #1e4d2b; border-radius:6px; padding:12px; font-family:monospace; font-size:12.5px; white-space:pre-wrap; }
 
-    .section-semgrep    { border-left:4px solid #58a6ff; background:#0d1b2e; padding:14px 18px; border-radius:8px; margin:8px 0; }
-    .section-trufflehog { border-left:4px solid #ff1744; background:#1a0008; padding:14px 18px; border-radius:8px; margin:8px 0; }
-    .section-bearer     { border-left:4px solid #b388ff; background:#130d1a; padding:14px 18px; border-radius:8px; margin:8px 0; }
-
-    .tool-header-semgrep    { color:#58a6ff; font-size:18px; font-weight:700; margin:22px 0 6px; }
-    .tool-header-trufflehog { color:#ff1744; font-size:18px; font-weight:700; margin:22px 0 6px; }
-    .tool-header-bearer     { color:#b388ff; font-size:18px; font-weight:700; margin:22px 0 6px; }
-    .tool-desc { color:#8b949e; font-size:12px; margin-bottom:10px; }
+    .tool-semgrep    { background:#0d1b2e; border:1px solid #58a6ff33; border-radius:8px; padding:10px; }
+    .tool-trufflehog { background:#1a0008; border:1px solid #ff174433; border-radius:8px; padding:10px; }
+    .tool-bearer     { background:#130d1a; border:1px solid #b388ff33; border-radius:8px; padding:10px; }
+    .tool-trivy      { background:#0d1a0d; border:1px solid #00e67633; border-radius:8px; padding:10px; }
+    .tool-fossid     { background:#1a1500; border:1px solid #ffd60033; border-radius:8px; padding:10px; }
 </style>
 """, unsafe_allow_html=True)
 
-# ── Constants ─────────────────────────────────────────────────
 SEV_COLOR = {"CRITICAL":"#ff1744","HIGH":"#ff6d00","MEDIUM":"#ffd600","LOW":"#00e676","UNKNOWN":"#8b949e"}
 SEV_ICON  = {"CRITICAL":"🔴","HIGH":"🟠","MEDIUM":"🟡","LOW":"🟢","UNKNOWN":"⚪"}
 SEV_ORDER = {"CRITICAL":0,"HIGH":1,"MEDIUM":2,"LOW":3}
 STEP_NUMS = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩"]
 
-TOOL_INFO = {
-    "semgrep":    {"icon": "🔎", "name": "Semgrep",    "color": "#58a6ff", "desc": "SAST — Code security analysis, OWASP Top 10"},
-    "trufflehog": {"icon": "🔑", "name": "Trufflehog", "color": "#ff1744", "desc": "Secrets detection — API keys, tokens, credentials"},
-    "bearer":     {"icon": "🛡️", "name": "Bearer CLI",  "color": "#b388ff", "desc": "API security — Data privacy, PII exposure, auth issues"},
+TOOLS = {
+    "semgrep":    {"icon":"🔎","name":"Semgrep",    "color":"#58a6ff","desc":"SAST — Code security, OWASP Top 10"},
+    "trufflehog": {"icon":"🔑","name":"Trufflehog", "color":"#ff1744","desc":"Secrets — API keys, tokens, credentials"},
+    "bearer":     {"icon":"🛡️","name":"Bearer CLI",  "color":"#b388ff","desc":"API security — PII, data privacy, auth"},
+    "trivy":      {"icon":"📦","name":"Trivy",       "color":"#00e676","desc":"Dependencies — CVEs, Dockerfile, IaC"},
+    "fossid":     {"icon":"⚖️","name":"FossID",      "color":"#ffd600","desc":"License compliance — OSS, SBOM"},
 }
 
 # ── Load report ───────────────────────────────────────────────
 REPORT_PATH = None
-
 if len(sys.argv) > 1:
     try:
         i = sys.argv.index("--report")
@@ -76,12 +70,9 @@ if len(sys.argv) > 1:
 
 if not REPORT_PATH or not Path(REPORT_PATH).exists():
     script_dir = Path(__file__).parent.parent
-    candidates = [
-        script_dir / "reports" / "ai_report.json",  # always correct relative to script
-        Path("./reports/ai_report.json"),
-        Path("../reports/ai_report.json"),
-    ]
-    for c in candidates:
+    for c in [script_dir/"reports"/"ai_report.json",
+              Path("./reports/ai_report.json"),
+              Path("../reports/ai_report.json")]:
         if c.exists():
             REPORT_PATH = str(c)
             break
@@ -104,25 +95,29 @@ prio_order = report.get("remediation_priority_order", [])
 
 # ── Sidebar ───────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("## 🔐 Security Pipeline")
+    st.markdown("## 🔐 Security Pipeline v2")
     st.markdown("---")
 
     all_sevs = ["CRITICAL","HIGH","MEDIUM","LOW"]
-    sel_sev  = st.multiselect("Severity Filter", all_sevs, default=all_sevs)
+    sel_sev  = st.multiselect("Severity", all_sevs, default=all_sevs)
 
-    sort_by  = st.selectbox("Sort by", ["Severity","Priority Score","File"])
+    tool_names = sorted(set(f.get("source","unknown") for f in findings))
+    sel_tools  = st.multiselect("Tool", tool_names, default=tool_names)
+
+    view_mode = st.radio("View by", ["Severity", "Tool"])
+    sort_by   = st.selectbox("Sort by", ["Severity","Priority","File"])
 
     st.markdown("---")
     show_steps = st.checkbox("Show fix steps",     value=True)
     show_code  = st.checkbox("Show code examples", value=True)
-
     st.markdown("---")
+
     if st.button("🔄 Reload"):
         st.rerun()
 
     ts = report.get("generated_at","")[:19].replace("T"," ")
     st.caption(f"Generated: {ts}")
-    st.caption("Tools: Semgrep + Trufflehog + Bearer CLI")
+    st.caption("Tools: Semgrep · Trufflehog · Bearer · Trivy · FossID")
     st.caption("AI: Samsung Gauss API")
     st.caption("⚠️ No source code sent to AI")
 
@@ -134,7 +129,7 @@ risk_icon  = SEV_ICON.get(risk,"⚪")
 col_h, col_r = st.columns([3,1])
 with col_h:
     st.title("🔐 AI Security Analysis Report")
-    st.caption("Semgrep + Trufflehog + Bearer CLI → Samsung Gauss API")
+    st.caption("Semgrep + Trufflehog + Bearer CLI + Trivy + FossID → Samsung Gauss API")
 with col_r:
     st.markdown(f"""
     <div style="background:{risk_color}18; border:2px solid {risk_color}; border-radius:10px;
@@ -144,21 +139,17 @@ with col_r:
         <div style="color:#8b949e; font-size:11px">Overall Risk</div>
     </div>""", unsafe_allow_html=True)
 
-# ── Alert banners ─────────────────────────────────────────────
 st.markdown("---")
-if report.get("parse_error"):
-    st.error("⚠️ AI response could not be parsed. Showing raw findings.")
-elif summary.get("immediate_action_required"):
+if summary.get("immediate_action_required"):
     st.error(f"🚨 **Immediate Action Required** — {summary.get('key_risk_statement','')}")
 else:
     st.info(f"📋 {summary.get('key_risk_statement','Scan complete.')}")
-
 if summary.get("attack_surface_summary"):
     st.warning(f"🎯 **Attack Surface:** {summary['attack_surface_summary']}")
 
-# ── Metrics ───────────────────────────────────────────────────
+# ── Severity metrics ──────────────────────────────────────────
 m1,m2,m3,m4,m5 = st.columns(5)
-with m1: st.metric("Total Issues", summary.get("total_issues", len(findings)))
+with m1: st.metric("Total", summary.get("total_issues", len(findings)))
 with m2:
     v = summary.get("critical_count",0)
     st.metric("🔴 Critical", v, delta=f"-{v}" if v else None, delta_color="inverse" if v else "off")
@@ -168,26 +159,26 @@ with m3:
 with m4: st.metric("🟡 Medium", summary.get("medium_count",0))
 with m5: st.metric("🟢 Low",    summary.get("low_count",0))
 
-# ── Tool summary cards ────────────────────────────────────────
+# ── Tool summary ──────────────────────────────────────────────
 st.markdown("---")
-st.markdown("**🛠️ Scanner Summary**")
-c1, c2, c3 = st.columns(3)
-for col, tool in zip([c1, c2, c3], ["semgrep", "trufflehog", "bearer"]):
-    info   = TOOL_INFO[tool]
-    count  = len([f for f in findings if f.get("source") == tool])
-    crits  = len([f for f in findings if f.get("source") == tool and f.get("severity") == "CRITICAL"])
+st.markdown("**🛠️ Scanner Results**")
+cols = st.columns(5)
+for col, tool_key in zip(cols, ["semgrep","trufflehog","bearer","trivy","fossid"]):
+    info  = TOOLS[tool_key]
+    count = len([f for f in findings if f.get("source") == tool_key])
+    crits = len([f for f in findings if f.get("source") == tool_key and f.get("severity") == "CRITICAL"])
     with col:
         st.markdown(
-            f'<div style="background:{info["color"]}18; border:1px solid {info["color"]}; '
-            f'border-radius:8px; padding:14px; text-align:center;">'
-            f'<div style="font-size:22px">{info["icon"]}</div>'
-            f'<div style="color:{info["color"]}; font-weight:700">{info["name"]}</div>'
-            f'<div style="font-size:22px; font-weight:700; color:#fff">{count}</div>'
-            f'<div style="color:#8b949e; font-size:11px">{info["desc"]}</div>'
-            f'{"<div style=color:#ff1744;font-size:11px>" + str(crits) + " critical</div>" if crits else ""}'
+            f'<div style="background:{info["color"]}18; border:1px solid {info["color"]}44; '
+            f'border-radius:8px; padding:12px; text-align:center;">'
+            f'<div style="font-size:20px">{info["icon"]}</div>'
+            f'<div style="color:{info["color"]}; font-weight:700; font-size:13px">{info["name"]}</div>'
+            f'<div style="font-size:26px; font-weight:700; color:#fff">{count}</div>'
+            f'<div style="color:#8b949e; font-size:10px">{info["desc"]}</div>'
+            f'{"<div style=color:#ff1744;font-size:11px;margin-top:4px>" + str(crits) + " critical</div>" if crits else ""}'
             f'</div>', unsafe_allow_html=True)
 
-# ── Fix These First ───────────────────────────────────────────
+# ── Fix these first ───────────────────────────────────────────
 if prio_order:
     st.markdown("---")
     st.markdown("**⚡ Fix These First**")
@@ -196,15 +187,14 @@ if prio_order:
         if match:
             sev   = match.get("severity","LOW").upper()
             color = SEV_COLOR.get(sev,"#8b949e")
-            icon  = SEV_ICON.get(sev,"⚪")
-            tool  = TOOL_INFO.get(match.get("source",""), {}).get("name", match.get("source",""))
+            tool  = TOOLS.get(match.get("source",""), {}).get("name", "")
             st.markdown(
                 f'<div style="padding:8px 14px; background:#161b22; border-left:3px solid {color}; '
                 f'border-radius:6px; margin:4px 0;">'
-                f'<b style="color:{color}">#{i}</b> &nbsp; {icon} {match.get("title",rule_id)} '
+                f'<b style="color:{color}">#{i}</b> &nbsp; {SEV_ICON.get(sev,"")} {match.get("title",rule_id)} '
                 f'<span class="meta-pill">{match.get("file","")}:{match.get("line","")}</span>'
-                f'<span class="meta-pill">{tool}</span>'
-                f'</div>', unsafe_allow_html=True)
+                f'<span class="meta-pill">{tool}</span></div>',
+                unsafe_allow_html=True)
 
 # ── Compliance ────────────────────────────────────────────────
 owasp_viols = compliance.get("owasp_top10_violations", [])
@@ -215,20 +205,17 @@ if owasp_viols or cwe_refs:
     cc1, cc2 = st.columns(2)
     with cc1:
         st.markdown("**OWASP Top 10 Violations**")
-        for o in owasp_viols:
-            st.markdown(f"- 🔸 `{o}`")
-        if not owasp_viols:
-            st.success("✅ No OWASP violations")
+        for o in owasp_viols: st.markdown(f"- 🔸 `{o}`")
+        if not owasp_viols: st.success("✅ No OWASP violations")
     with cc2:
-        st.markdown("**CWE References**")
+        st.markdown("**CWE / CVE References**")
         for c in cwe_refs:
             digits = re.search(r'\d+', str(c))
-            if digits:
+            if digits and "CWE" in str(c):
                 st.markdown(f"- [`{c}`](https://cwe.mitre.org/data/definitions/{digits.group()}.html)")
             else:
                 st.markdown(f"- `{c}`")
-        if not cwe_refs:
-            st.success("✅ No CWE references")
+        if not cwe_refs: st.success("✅ No references")
 
 
 # ── Finding card renderer ─────────────────────────────────────
@@ -243,10 +230,11 @@ def render_finding(finding):
     cwe      = finding.get("cwe","N/A")
     owasp    = finding.get("owasp","N/A")
     priority = finding.get("priority",0)
+    source   = finding.get("source","")
+    tool_info = TOOLS.get(source, {})
 
     with st.expander(f"{icon} [{sev}]  {title}  —  {file_}:{line_}", expanded=(sev=="CRITICAL")):
         col_l, col_r = st.columns([3,1])
-
         with col_l:
             what = finding.get("what_it_means","")
             if what:
@@ -263,10 +251,28 @@ def render_finding(finding):
                 st.markdown(f"**💼 Business Impact:** {impact}")
 
             st.markdown("---")
-
             fix_sum = finding.get("fix_summary","")
             if fix_sum:
                 st.markdown(f"**✅ Fix:** {fix_sum}")
+
+            # Special fields for Trivy
+            if source == "trivy":
+                pkg = finding.get("package","")
+                ver = finding.get("version","")
+                fix = finding.get("fixed_in","")
+                if pkg:
+                    st.markdown(f"**📦 Package:** `{pkg}` version `{ver}`")
+                    st.markdown(f"**🔧 Fixed in:** `{fix}`" if fix != "Not fixed yet"
+                                else "**🔧 Fixed in:** No fix available yet")
+
+            # Special fields for FossID
+            if source == "fossid":
+                lic = finding.get("license","")
+                comp = finding.get("component","")
+                if lic:
+                    st.markdown(f"**⚖️ License:** `{lic}`")
+                if comp:
+                    st.markdown(f"**📦 Component:** `{comp}`")
 
             if show_steps:
                 steps = finding.get("fix_steps", [])
@@ -299,6 +305,11 @@ def render_finding(finding):
                         clean = code_ex.replace("BEFORE:","").replace("AFTER:","\n# ✅ Secure:\n")
                         st.code(clean, language="python")
 
+            refs = finding.get("references",[])
+            if refs:
+                st.markdown("**📚 References**")
+                for ref in refs: st.markdown(f"- {ref}")
+
         with col_r:
             st.markdown(
                 f'<div style="background:{color}18; border:1px solid {color}; border-radius:8px;'
@@ -306,6 +317,15 @@ def render_finding(finding):
                 f'<div style="font-size:24px">{icon}</div>'
                 f'<div style="color:{color}; font-weight:700; font-size:16px">{sev}</div>'
                 f'</div>', unsafe_allow_html=True)
+
+            if tool_info:
+                st.markdown(
+                    f'<div style="background:{tool_info.get("color","#8b949e")}18; border:1px solid '
+                    f'{tool_info.get("color","#8b949e")}44; border-radius:6px; padding:6px; '
+                    f'text-align:center; margin-bottom:8px;">'
+                    f'{tool_info.get("icon","")} <b style="color:{tool_info.get("color","#8b949e")}">'
+                    f'{tool_info.get("name","")}</b></div>',
+                    unsafe_allow_html=True)
 
             def pill(label, value):
                 return f'<div class="meta-pill" style="margin:3px 0;"><b>{label}:</b> {value}</div>'
@@ -317,48 +337,83 @@ def render_finding(finding):
                 unsafe_allow_html=True)
 
             digits = re.search(r'\d+', str(cwe))
-            if digits and cwe != "N/A":
+            if digits and "CWE" in str(cwe):
                 st.markdown(f"🔗 [**{cwe}**](https://cwe.mitre.org/data/definitions/{digits.group()}.html)")
             else:
-                st.markdown(f'<div class="meta-pill">CWE: {cwe}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div class="meta-pill">ID: {cwe}</div>', unsafe_allow_html=True)
 
             st.markdown(f'<div class="meta-pill">OWASP: {owasp}</div>', unsafe_allow_html=True)
-
             if priority:
                 st.progress(priority/10, text=f"Priority: {priority}/10")
 
 
-# ── Render each tool section ──────────────────────────────────
-for tool_key in ["semgrep", "trufflehog", "bearer"]:
-    info = TOOL_INFO[tool_key]
+# ── Filter and sort findings ──────────────────────────────────
+filtered = [f for f in findings
+            if f.get("severity","LOW").upper() in sel_sev
+            and f.get("source","unknown") in sel_tools]
 
-    tool_findings = [
-        f for f in findings
-        if f.get("source") == tool_key
-        and f.get("severity","LOW").upper() in sel_sev
-    ]
-
+def do_sort(lst):
     if sort_by == "Severity":
-        tool_findings.sort(key=lambda x: SEV_ORDER.get(x.get("severity","LOW").upper(), 99))
-    elif sort_by == "Priority Score":
-        tool_findings.sort(key=lambda x: -x.get("priority", 0))
+        lst.sort(key=lambda x: SEV_ORDER.get(x.get("severity","LOW").upper(), 99))
+    elif sort_by == "Priority":
+        lst.sort(key=lambda x: -x.get("priority", 0))
     elif sort_by == "File":
-        tool_findings.sort(key=lambda x: x.get("file",""))
+        lst.sort(key=lambda x: x.get("file",""))
+    return lst
 
-    st.markdown("---")
-    st.markdown(
-        f'<div style="color:{info["color"]}; font-size:18px; font-weight:700; '
-        f'margin:10px 0 4px; border-bottom:1px solid {info["color"]}33; padding-bottom:6px;">'
-        f'{info["icon"]} {info["name"]} Findings</div>'
-        f'<div style="color:#8b949e; font-size:12px; margin-bottom:10px;">{info["desc"]}</div>',
-        unsafe_allow_html=True)
 
-    if not tool_findings:
-        st.success(f"✅ No issues detected by {info['name']}.")
-    else:
-        st.caption(f"{len(tool_findings)} finding(s)")
-        for finding in tool_findings:
+# ══════════════════════════════════════════════════
+# VIEW MODE A: BY SEVERITY
+# ══════════════════════════════════════════════════
+if view_mode == "Severity":
+    for sev_level, sev_label, sev_color in [
+        ("CRITICAL", "🔴 Critical",  "#ff1744"),
+        ("HIGH",     "🟠 High",      "#ff6d00"),
+        ("MEDIUM",   "🟡 Medium",    "#ffd600"),
+        ("LOW",      "🟢 Low",       "#00e676"),
+    ]:
+        if sev_level not in sel_sev:
+            continue
+
+        sev_findings = do_sort([f for f in filtered if f.get("severity","").upper() == sev_level])
+        if not sev_findings:
+            continue
+
+        st.markdown("---")
+        st.markdown(
+            f'<div style="color:{sev_color}; font-size:18px; font-weight:700; '
+            f'margin:10px 0 4px; border-bottom:1px solid {sev_color}33; padding-bottom:6px;">'
+            f'{sev_label} Severity — {len(sev_findings)} issue(s)</div>',
+            unsafe_allow_html=True)
+
+        for finding in sev_findings:
             render_finding(finding)
+
+
+# ══════════════════════════════════════════════════
+# VIEW MODE B: BY TOOL
+# ══════════════════════════════════════════════════
+else:
+    for tool_key in ["semgrep","trufflehog","bearer","trivy","fossid"]:
+        if tool_key not in sel_tools:
+            continue
+        info = TOOLS[tool_key]
+        tool_findings = do_sort([f for f in filtered if f.get("source") == tool_key])
+
+        st.markdown("---")
+        st.markdown(
+            f'<div style="color:{info["color"]}; font-size:18px; font-weight:700; '
+            f'margin:10px 0 4px; border-bottom:1px solid {info["color"]}33; padding-bottom:6px;">'
+            f'{info["icon"]} {info["name"]} — {len(tool_findings)} finding(s)</div>'
+            f'<div style="color:#8b949e; font-size:12px; margin-bottom:10px;">{info["desc"]}</div>',
+            unsafe_allow_html=True)
+
+        if not tool_findings:
+            st.success(f"✅ No issues from {info['name']}.")
+        else:
+            for finding in tool_findings:
+                render_finding(finding)
+
 
 # ── Recommendations ───────────────────────────────────────────
 if recs:
@@ -372,20 +427,18 @@ if recs:
         with c1:
             st.markdown(f"**{rec.get('area','General')}**")
             st.markdown(rec.get("action",""))
-            if rec.get("rationale"):
-                st.caption(f"Why: {rec['rationale']}")
+            if rec.get("rationale"): st.caption(f"Why: {rec['rationale']}")
         with c2:
             st.markdown(
                 f'<div style="color:{e_color}; text-align:center; padding-top:10px;">'
-                f'{e_icon}<br><small>{effort}</small></div>',
-                unsafe_allow_html=True)
+                f'{e_icon}<br><small>{effort}</small></div>', unsafe_allow_html=True)
         st.divider()
 
 # ── Footer ────────────────────────────────────────────────────
 st.markdown("""
 <div style="text-align:center; color:#484f58; padding:30px 0 10px; font-size:12px;">
-    Modern AI Security Pipeline &nbsp;|&nbsp;
-    Semgrep + Trufflehog + Bearer CLI → Samsung Gauss API<br>
+    Modern AI Security Pipeline v2 &nbsp;|&nbsp;
+    Semgrep · Trufflehog · Bearer CLI · Trivy · FossID → Samsung Gauss API<br>
     <em>Source code is never transmitted. Only security metadata is analyzed by AI.</em>
 </div>
 """, unsafe_allow_html=True)
