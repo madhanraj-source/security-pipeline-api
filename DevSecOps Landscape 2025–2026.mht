@@ -1,0 +1,863 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: https://d2z0o16i8xm8ak.cloudfront.net/web/direct-files/3d5a104975ac4fe7ae414706ce6d1a8b/31ba91ee-0896-45be-9091-6e0181433e8a/870fdc95.html?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9kMnowbzE2aTh4bThhay5jbG91ZGZyb250Lm5ldC93ZWIvZGlyZWN0LWZpbGVzLzNkNWExMDQ5NzVhYzRmZTdhZTQxNDcwNmNlNmQxYThiLzMxYmE5MWVlLTA4OTYtNDViZS05MDkxLTZlMDE4MTQzM2U4YS84NzBmZGM5NS5odG1sPyoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3Nzc0NDI0MDB9fX1dfQ__&Signature=QvSCFLmxChBezv7Ecuz6REZhoJb~pFsX577OC5NEWerCmuB0567dCL8NVCb3ZWnUYFSULHrNXsNSSET-jUH2ewYTpXztA58~NdQuCb9NqEgvZPD8ZihC4MtIjDvdQqKQAxLjbsL26SYm2huVIzMq~BMEY90oMK~InKy3NdILMPk2Kn63PzSzIyQWFy6keB4LgUSzogJnMhOuR8s3h5ypOfC0VmdaWwGaNkxAe4I3hlTJoQtUK4wcFhAQ3GKHQipDGp5u1a8VycmbCUbX8Xs2NNrcoiEc9ExmxImFfMZOapuOj-q4y7dhxu3tV0cIIQXcUZwVdGL-pVD6UmRWnZ5CcQ__&Key-Pair-Id=K1BF7XGXAIMYNX&rnd=1776837608508&utm_source=perplexity
+Subject: =?utf-8?Q?DevSecOps=20Landscape=202025=E2=80=932026?=
+Date: Wed, 22 Apr 2026 11:30:54 +0530
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--ueScPJTZJLqc8voFIVVzMzh0xvALM0sfxAXNHs6lc0----"
+
+
+------MultipartBoundary--ueScPJTZJLqc8voFIVVzMzh0xvALM0sfxAXNHs6lc0----
+Content-Type: text/html
+Content-ID: <frame-DB38813917DE4992157B445EB3BA4881@mhtml.blink>
+Content-Transfer-Encoding: binary
+Content-Location: https://d2z0o16i8xm8ak.cloudfront.net/web/direct-files/3d5a104975ac4fe7ae414706ce6d1a8b/31ba91ee-0896-45be-9091-6e0181433e8a/870fdc95.html?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9kMnowbzE2aTh4bThhay5jbG91ZGZyb250Lm5ldC93ZWIvZGlyZWN0LWZpbGVzLzNkNWExMDQ5NzVhYzRmZTdhZTQxNDcwNmNlNmQxYThiLzMxYmE5MWVlLTA4OTYtNDViZS05MDkxLTZlMDE4MTQzM2U4YS84NzBmZGM5NS5odG1sPyoiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3Nzc0NDI0MDB9fX1dfQ__&Signature=QvSCFLmxChBezv7Ecuz6REZhoJb~pFsX577OC5NEWerCmuB0567dCL8NVCb3ZWnUYFSULHrNXsNSSET-jUH2ewYTpXztA58~NdQuCb9NqEgvZPD8ZihC4MtIjDvdQqKQAxLjbsL26SYm2huVIzMq~BMEY90oMK~InKy3NdILMPk2Kn63PzSzIyQWFy6keB4LgUSzogJnMhOuR8s3h5ypOfC0VmdaWwGaNkxAe4I3hlTJoQtUK4wcFhAQ3GKHQipDGp5u1a8VycmbCUbX8Xs2NNrcoiEc9ExmxImFfMZOapuOj-q4y7dhxu3tV0cIIQXcUZwVdGL-pVD6UmRWnZ5CcQ__&Key-Pair-Id=K1BF7XGXAIMYNX&rnd=1776837608508&utm_source=perplexity
+
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="cid:css-714af006-f788-4a05-82ab-2b4e46ac9ee0@mhtml.blink" /><link rel="stylesheet" type="text/css" href="cid:css-53f84c4d-311e-40fa-8703-93acbf731657@mhtml.blink" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="slides-format" content="viewport">
+    <title>DevSecOps Landscape 2025–2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    
+    
+    
+</head>
+<body>
+<div class="mouse-spotlight" id="spotlight" style="background: radial-gradient(600px at 253px 687px, rgba(0, 255, 65, 0.055), transparent 40%);"></div>
+<div class="deck">
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 1 — TITLE
+══════════════════════════════════════════════════ -->
+<div class="slide slide-1 active" data-slide="1">
+    <div class="grid-bg"></div>
+    <div class="gradient-mesh">
+        <div class="blob" style="width:520px;height:520px;top:-120px;right:-100px;background:#00FF41;opacity:0.09;"></div>
+        <div class="blob" style="width:320px;height:320px;bottom:-80px;left:-60px;background:#00AA2A;opacity:0.1;"></div>
+        <div class="blob" style="width:220px;height:220px;top:45%;left:12%;background:#FFA500;opacity:0.07;"></div>
+    </div>
+    <div class="scanlines"></div>
+    <canvas class="particle-canvas" style="position:absolute;inset:0;z-index:1;width:100%;height:100%;" width="980" height="2050"></canvas>
+    <div class="content text-center">
+        <div style="font-size: 90px; margin-bottom: 1rem; animation: 3s ease-in-out 0s infinite normal none running float; transition: opacity 0.38s, transform 0.38s; opacity: 1; transform: translateY(0px);" class="reveal">🔐</div>
+        <div class="badge badge-green reveal" style="margin-bottom: 1.2rem; font-size: 0.7rem; transition: opacity 0.38s 0.07s, transform 0.38s 0.07s; opacity: 1; transform: translateY(0px);">Industry Analysis Report · 2025–2026</div>
+        <h1 style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: clamp(2.2rem, 5.5vw, 4.2rem); font-weight: 800; background: linear-gradient(135deg, rgb(0, 255, 65), rgb(163, 255, 184), rgb(0, 255, 65)) text; -webkit-text-fill-color: transparent; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1rem; transition: opacity 0.38s 0.14s, transform 0.38s 0.14s; opacity: 1; transform: translateY(0px);" class="reveal">DevSecOps Landscape</h1>
+        <p style="font-family: &quot;JetBrains Mono&quot;, monospace; font-size: clamp(0.85rem, 1.4vw, 1.15rem); color: rgb(90, 138, 98); letter-spacing: 0.25em; text-transform: uppercase; transition: opacity 0.38s 0.21s, transform 0.38s 0.21s; opacity: 1; transform: translateY(0px);" class="reveal">Securing the Software Delivery Lifecycle</p>
+        <div style="display: flex; gap: 2rem; justify-content: center; margin-top: 2rem; transition: opacity 0.38s 0.28s, transform 0.38s 0.28s; opacity: 1; transform: translateY(0px);" class="reveal">
+            <div style="text-align:center;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:800;color:#00FF41;" class="glow-pulse">$11.7B</div>
+                <div style="font-size:0.7rem;color:#5A8A62;text-transform:uppercase;letter-spacing:0.1em;">Market 2025</div>
+            </div>
+            <div style="width:1px;background:rgba(0,255,65,0.2);"></div>
+            <div style="text-align:center;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:800;color:#00FF41;" class="glow-pulse">25%+</div>
+                <div style="font-size:0.7rem;color:#5A8A62;text-transform:uppercase;letter-spacing:0.1em;">CAGR</div>
+            </div>
+            <div style="width:1px;background:rgba(0,255,65,0.2);"></div>
+            <div style="text-align:center;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:800;color:#00FF41;" class="glow-pulse">9 Slides</div>
+                <div style="font-size:0.7rem;color:#5A8A62;text-transform:uppercase;letter-spacing:0.1em;">Deep Dive</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 2 — MARKET TRENDS
+══════════════════════════════════════════════════ -->
+<div class="slide slide-2" data-slide="2">
+    <div class="grid-bg"></div>
+    <div class="gradient-mesh">
+        <div class="blob" style="width:380px;height:380px;top:-80px;right:-70px;background:#00FF41;opacity:0.07;"></div>
+        <div class="blob" style="width:260px;height:260px;bottom:-60px;left:-40px;background:#00AA2A;opacity:0.06;"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="content">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;" class="reveal">
+            <div class="badge badge-green">Market Trends</div>
+            <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(0,255,65,0.4),transparent);"></div>
+        </div>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;color:#00FF41;margin-bottom:1.4rem;line-height:1.15;" class="reveal">Current Market Trends <span style="color:#5A8A62;">&amp; Drivers</span></h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div class="glass-card reveal" style="padding:1.1rem 1.3rem;">
+                <div style="font-size:1.5rem;margin-bottom:0.4rem;">📈</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#00FF41;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.35rem;">Market Growth</div>
+                <p style="font-size:0.82rem;color:#A3C4AA;line-height:1.5;margin:0;">DevSecOps market expanding from <strong style="color:#E2FFE8;">$9–11.7B USD</strong> in 2025–26 toward <strong style="color:#E2FFE8;">$16–37B by 2030–35</strong>, driven by cloud-native workloads and regulatory pressure.</p>
+            </div>
+            <div class="glass-card reveal" style="padding:1.1rem 1.3rem;">
+                <div style="font-size:1.5rem;margin-bottom:0.4rem;">☁️</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#00FF41;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.35rem;">Cloud-Native Dominance</div>
+                <p style="font-size:0.82rem;color:#A3C4AA;line-height:1.5;margin:0;">Cloud-based DevSecOps accounts for <strong style="color:#E2FFE8;">~61%</strong> of deployments; cloud-native environments hold <strong style="color:#E2FFE8;">~48% share</strong>. Kubernetes and containers are now the primary security context.</p>
+            </div>
+            <div class="glass-card reveal" style="padding:1.1rem 1.3rem;">
+                <div style="font-size:1.5rem;margin-bottom:0.4rem;">⬅️</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#00FF41;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.35rem;">Shift-Left Acceleration</div>
+                <p style="font-size:0.82rem;color:#A3C4AA;line-height:1.5;margin:0;">SAST, SCA, secrets detection, and IaC scanning embedded in CI/CD at <strong style="color:#E2FFE8;">commit and PR time</strong>. Security gates replacing post-release audits.</p>
+            </div>
+            <div class="glass-card reveal" style="padding:1.1rem 1.3rem;">
+                <div style="font-size:1.5rem;margin-bottom:0.4rem;">🔗</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#00FF41;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.35rem;">Supply Chain Security</div>
+                <p style="font-size:0.82rem;color:#A3C4AA;line-height:1.5;margin:0;"><strong style="color:#E2FFE8;">SBOMs, dependency signing, and OSS risk</strong> are the fastest-growing segments following high-profile pipeline compromises (SolarWinds, XZ Utils, etc.).</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 3 — CI/CD & AUTOMATION
+══════════════════════════════════════════════════ -->
+<div class="slide slide-3" data-slide="3">
+    <div class="grid-bg"></div>
+    <div class="gradient-mesh">
+        <div class="blob" style="width:400px;height:400px;top:-90px;left:-80px;background:#00FF41;opacity:0.07;"></div>
+        <div class="blob" style="width:240px;height:240px;bottom:-60px;right:-40px;background:#FFA500;opacity:0.06;"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="content">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;" class="reveal">
+            <div class="badge badge-green">Pipeline Architecture</div>
+            <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(0,255,65,0.4),transparent);"></div>
+        </div>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.5rem,3.2vw,2.2rem);font-weight:800;color:#00FF41;margin-bottom:1.2rem;" class="reveal">CI/CD, Cloud-Native <span style="color:#5A8A62;">&amp; Security Automation</span></h2>
+        <!-- Pipeline flow -->
+        <div class="glass-card reveal" style="padding:1rem 1.5rem;margin-bottom:1.1rem;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#5A8A62;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.7rem;">// DevSecOps Reference Pipeline</div>
+            <div style="display:flex;align-items:center;gap:0.3rem;flex-wrap:wrap;gap:0.4rem;">
+                <div class="pipeline-node" style="text-align:center;">
+                    <div style="background:rgba(0,255,65,0.1);border:1px solid rgba(0,255,65,0.25);border-radius:6px;padding:0.3rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#00FF41;">PLAN</div>
+                    <div style="font-size:0.55rem;color:#5A8A62;margin-top:2px;">Threat Model</div>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-node">
+                    <div style="background:rgba(0,255,65,0.1);border:1px solid rgba(0,255,65,0.25);border-radius:6px;padding:0.3rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#00FF41;">CODE</div>
+                    <div style="font-size:0.55rem;color:#5A8A62;margin-top:2px;">SAST/SCA</div>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-node">
+                    <div style="background:rgba(0,255,65,0.1);border:1px solid rgba(0,255,65,0.25);border-radius:6px;padding:0.3rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#00FF41;">BUILD</div>
+                    <div style="font-size:0.55rem;color:#5A8A62;margin-top:2px;">Image Scan</div>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-node">
+                    <div style="background:rgba(0,255,65,0.1);border:1px solid rgba(0,255,65,0.25);border-radius:6px;padding:0.3rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#00FF41;">TEST</div>
+                    <div style="font-size:0.55rem;color:#5A8A62;margin-top:2px;">DAST/API</div>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-node">
+                    <div style="background:rgba(0,255,65,0.1);border:1px solid rgba(0,255,65,0.25);border-radius:6px;padding:0.3rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#00FF41;">RELEASE</div>
+                    <div style="font-size:0.55rem;color:#5A8A62;margin-top:2px;">Policy Gate</div>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-node">
+                    <div style="background:rgba(0,255,65,0.1);border:1px solid rgba(0,255,65,0.25);border-radius:6px;padding:0.3rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#00FF41;">DEPLOY</div>
+                    <div style="font-size:0.55rem;color:#5A8A62;margin-top:2px;">IaC Check</div>
+                </div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-node">
+                    <div style="background:rgba(255,165,0,0.12);border:1px solid rgba(255,165,0,0.3);border-radius:6px;padding:0.3rem 0.6rem;font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#FFA500;">OPERATE</div>
+                    <div style="font-size:0.55rem;color:#5A8A62;margin-top:2px;">Runtime Mon.</div>
+                </div>
+            </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.9rem;">
+            <div class="accent-card reveal" style="padding:0.8rem 1rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00FF41;font-weight:700;margin-bottom:0.3rem;">CI/CD Platforms</div>
+                <p style="font-size:0.78rem;color:#A3C4AA;margin:0;line-height:1.5;">Jenkins, GitHub Actions, GitLab CI/CD, Azure DevOps — the orchestration backbone</p>
+            </div>
+            <div class="accent-card reveal" style="padding:0.8rem 1rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00FF41;font-weight:700;margin-bottom:0.3rem;">Automation at Scale</div>
+                <p style="font-size:0.78rem;color:#A3C4AA;margin:0;line-height:1.5;">SAST, SCA, container and IaC scans run every commit — no human gate delays</p>
+            </div>
+            <div class="accent-card reveal" style="padding:0.8rem 1rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00FF41;font-weight:700;margin-bottom:0.3rem;">GitOps Model</div>
+                <p style="font-size:0.78rem;color:#A3C4AA;margin:0;line-height:1.5;">Git as single source of truth for app manifests, IaC, and security policies</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 4 — CHALLENGES
+══════════════════════════════════════════════════ -->
+<div class="slide slide-4" data-slide="4">
+    <div class="grid-bg"></div>
+    <div class="gradient-mesh">
+        <div class="blob" style="width:350px;height:350px;top:-70px;right:-60px;background:#FFA500;opacity:0.08;"></div>
+        <div class="blob" style="width:250px;height:250px;bottom:-50px;left:-40px;background:#00FF41;opacity:0.06;"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="content">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;" class="reveal">
+            <div class="badge badge-orange">Challenges</div>
+            <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(255,165,0,0.4),transparent);"></div>
+        </div>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.5rem,3.2vw,2.2rem);font-weight:800;color:#FFA500;margin-bottom:1.3rem;" class="reveal">Organizational <span style="color:#5A8A62;">Adoption Challenges</span></h2>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+            <div class="orange-card reveal" style="padding:0.85rem 1.2rem;display:flex;align-items:flex-start;gap:1rem;">
+                <div style="font-size:1.3rem;flex-shrink:0;">🛠️</div>
+                <div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#FFA500;font-weight:700;margin-bottom:0.2rem;">Tool Sprawl &amp; Integration Complexity</div>
+                    <p style="font-size:0.8rem;color:#A3C4AA;margin:0;line-height:1.5;">Multiple overlapping scanners (SAST, DAST, SCA, container, IaC, CSPM, CNAPP) create alert storms and integration overhead across teams.</p>
+                </div>
+            </div>
+            <div class="orange-card reveal" style="padding:0.85rem 1.2rem;display:flex;align-items:flex-start;gap:1rem;">
+                <div style="font-size:1.3rem;flex-shrink:0;">🔔</div>
+                <div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#FFA500;font-weight:700;margin-bottom:0.2rem;">Alert Fatigue &amp; Poor Prioritization</div>
+                    <p style="font-size:0.8rem;color:#A3C4AA;margin:0;line-height:1.5;">Teams cannot separate exploitable, critical issues from noise — leading to missed vulnerabilities or blocked pipelines slowing release velocity.</p>
+                </div>
+            </div>
+            <div class="orange-card reveal" style="padding:0.85rem 1.2rem;display:flex;align-items:flex-start;gap:1rem;">
+                <div style="font-size:1.3rem;flex-shrink:0;">🧠</div>
+                <div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#FFA500;font-weight:700;margin-bottom:0.2rem;">Skills &amp; Culture Gaps</div>
+                    <p style="font-size:0.8rem;color:#A3C4AA;margin:0;line-height:1.5;">Shortage of AppSec, cloud-native, and automation expertise slows adoption. DevSecOps is as much cultural change as tooling investment.</p>
+                </div>
+            </div>
+            <div class="orange-card reveal" style="padding:0.85rem 1.2rem;display:flex;align-items:flex-start;gap:1rem;">
+                <div style="font-size:1.3rem;flex-shrink:0;">📋</div>
+                <div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#FFA500;font-weight:700;margin-bottom:0.2rem;">Continuous Compliance Pressure</div>
+                    <p style="font-size:0.8rem;color:#A3C4AA;margin:0;line-height:1.5;">Regulators demand <strong style="color:#E2FFE8;">continuous auditable evidence</strong> — not annual point-in-time checks — forcing automated compliance pipelines.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 5 — BEST PRACTICES
+══════════════════════════════════════════════════ -->
+<div class="slide slide-5" data-slide="5">
+    <div class="grid-bg"></div>
+    <div class="gradient-mesh">
+        <div class="blob" style="width:420px;height:420px;top:-90px;right:-80px;background:#00FF41;opacity:0.08;"></div>
+        <div class="blob" style="width:260px;height:260px;bottom:-60px;left:-40px;background:#00FF41;opacity:0.05;"></div>
+    </div>
+    <div class="scanlines"></div>
+    <canvas class="particle-canvas-ambient" style="position:absolute;inset:0;z-index:1;width:100%;height:100%;" width="980" height="2050"></canvas>
+    <div class="content">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;" class="reveal">
+            <div class="badge badge-green">Best Practices</div>
+            <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(0,255,65,0.4),transparent);"></div>
+        </div>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.5rem,3.2vw,2.2rem);font-weight:800;color:#00FF41;margin-bottom:1.2rem;" class="reveal">Secure SDLC, Shift-Left, <span style="color:#5A8A62;">Zero Trust</span></h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+            <div>
+                <div class="glass-card reveal" style="padding:1rem 1.2rem;margin-bottom:0.8rem;">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00FF41;font-weight:700;margin-bottom:0.5rem;">⬅️  SHIFT-LEFT</div>
+                    <ul style="margin:0;padding-left:1.1rem;font-size:0.78rem;color:#A3C4AA;line-height:1.7;">
+                        <li>Run SAST &amp; SCA on every commit/PR</li>
+                        <li>Scan IaC &amp; container images pre-deploy</li>
+                        <li>Block merges for critical vulns &amp; secrets</li>
+                        <li>Enforce branch protection &amp; signed commits</li>
+                    </ul>
+                </div>
+                <div class="glass-card reveal" style="padding:1rem 1.2rem;">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#FFA500;font-weight:700;margin-bottom:0.5rem;">🔒  ZERO TRUST</div>
+                    <ul style="margin:0;padding-left:1.1rem;font-size:0.78rem;color:#A3C4AA;line-height:1.7;">
+                        <li>Identity-centric access for all CI/CD systems</li>
+                        <li>Least privilege in clusters &amp; cloud workloads</li>
+                        <li>Micro-segmentation across services</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="glass-card reveal" style="padding:1rem 1.2rem;margin-bottom:0.8rem;">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00FF41;font-weight:700;margin-bottom:0.5rem;">➡️  SHIFT-RIGHT</div>
+                    <ul style="margin:0;padding-left:1.1rem;font-size:0.78rem;color:#A3C4AA;line-height:1.7;">
+                        <li>Runtime tools: Falco, Wiz, Trivy in Kubernetes</li>
+                        <li>Detect misconfigs &amp; anomalous behavior in prod</li>
+                        <li>Feed runtime data back to threat models</li>
+                        <li>Continuous security validation in production</li>
+                    </ul>
+                </div>
+                <div class="glass-card reveal" style="padding:1rem 1.2rem;">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#FFA500;font-weight:700;margin-bottom:0.5rem;">📜  POLICY-AS-CODE</div>
+                    <ul style="margin:0;padding-left:1.1rem;font-size:0.78rem;color:#A3C4AA;line-height:1.7;">
+                        <li>Encode CIS, NIST, PCI controls as code</li>
+                        <li>OPA/Rego policies in admission controllers</li>
+                        <li>Automated compliance evidence generation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 6 — TOOLS
+══════════════════════════════════════════════════ -->
+<div class="slide slide-6" data-slide="6">
+    <div class="grid-bg"></div>
+    <div class="gradient-mesh">
+        <div class="blob" style="width:360px;height:360px;top:-80px;right:-60px;background:#00FF41;opacity:0.07;"></div>
+        <div class="blob" style="width:240px;height:240px;bottom:-55px;left:-40px;background:#00AA2A;opacity:0.06;"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="content">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;" class="reveal">
+            <div class="badge badge-green">Toolchain</div>
+            <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(0,255,65,0.4),transparent);"></div>
+        </div>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.5rem,3.2vw,2.2rem);font-weight:800;color:#00FF41;margin-bottom:1.1rem;" class="reveal">DevSecOps Tools <span style="color:#5A8A62;">&amp; Integration</span></h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem;">
+            <div class="glass-card reveal" style="padding:0.9rem 1rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#00FF41;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">⚙️ CI/CD</div>
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                    <span class="badge badge-green">Jenkins</span>
+                    <span class="badge badge-green">GitHub Actions</span>
+                    <span class="badge badge-green">GitLab CI</span>
+                    <span class="badge badge-green">Azure DevOps</span>
+                    <span class="badge badge-green">CircleCI</span>
+                </div>
+            </div>
+            <div class="glass-card reveal" style="padding:0.9rem 1rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#00FF41;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">🔍 SAST / SCA</div>
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                    <span class="badge badge-green">Checkmarx</span>
+                    <span class="badge badge-green">Snyk</span>
+                    <span class="badge badge-green">Semgrep</span>
+                    <span class="badge badge-green">Veracode</span>
+                    <span class="badge badge-green">SonarQube</span>
+                </div>
+            </div>
+            <div class="glass-card reveal" style="padding:0.9rem 1rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#00FF41;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">🌐 DAST</div>
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                    <span class="badge badge-green">OWASP ZAP</span>
+                    <span class="badge badge-green">Burp Suite</span>
+                    <span class="badge badge-green">Invicti</span>
+                    <span class="badge badge-green">StackHawk</span>
+                </div>
+            </div>
+            <div class="glass-card reveal" style="padding:0.9rem 1rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#00FF41;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">🐳 Container/K8s</div>
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                    <span class="badge badge-green">Trivy</span>
+                    <span class="badge badge-green">Falco</span>
+                    <span class="badge badge-green">Wiz</span>
+                    <span class="badge badge-green">Kubescape</span>
+                    <span class="badge badge-green">Aqua</span>
+                </div>
+            </div>
+            <div class="glass-card reveal" style="padding:0.9rem 1rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#00FF41;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">🏗️ IaC Security</div>
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                    <span class="badge badge-green">Checkov</span>
+                    <span class="badge badge-green">tfsec</span>
+                    <span class="badge badge-green">Snyk IaC</span>
+                    <span class="badge badge-green">KICS</span>
+                    <span class="badge badge-green">AccuKnox</span>
+                </div>
+            </div>
+            <div class="glass-card reveal" style="padding:0.9rem 1rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#00FF41;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">📊 Observability</div>
+                <div style="display:flex;flex-wrap:wrap;gap:4px;">
+                    <span class="badge badge-green">Prometheus</span>
+                    <span class="badge badge-green">Grafana</span>
+                    <span class="badge badge-green">Datadog</span>
+                    <span class="badge badge-green">ASPM/CNAPP</span>
+                </div>
+            </div>
+        </div>
+        <div class="glass-card reveal" style="padding:0.7rem 1.2rem;margin-top:0.8rem;display:flex;align-items:center;gap:0.7rem;">
+            <span style="color:#00FF41;font-size:1rem;">💡</span>
+            <p style="font-size:0.76rem;color:#A3C4AA;margin:0;">Integration pattern: <strong style="color:#E2FFE8;">CI/CD orchestrates scans → ASPM/code-to-cloud correlates findings with runtime exposure → unified risk dashboard drives remediation workflow</strong></p>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 7 — METHODOLOGIES
+══════════════════════════════════════════════════ -->
+<div class="slide slide-7" data-slide="7">
+    <div class="grid-bg"></div>
+    <div class="gradient-mesh">
+        <div class="blob" style="width:400px;height:400px;top:-85px;right:-75px;background:#00FF41;opacity:0.07;"></div>
+        <div class="blob" style="width:260px;height:260px;bottom:-60px;left:-45px;background:#00CC33;opacity:0.06;"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="content">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;" class="reveal">
+            <div class="badge badge-green">Frameworks</div>
+            <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(0,255,65,0.4),transparent);"></div>
+        </div>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.5rem,3.2vw,2.2rem);font-weight:800;color:#00FF41;margin-bottom:1.2rem;" class="reveal">GitOps, IaC <span style="color:#5A8A62;">&amp; Security as Code</span></h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.9rem;">
+            <div class="glass-card reveal" style="padding:1rem 1.2rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00FF41;font-weight:700;margin-bottom:0.5rem;">🔀 GitOps Workflow</div>
+                <p style="font-size:0.78rem;color:#A3C4AA;line-height:1.6;margin:0;">Git as the <strong style="color:#E2FFE8;">single source of truth</strong> for application code, IaC manifests, and security policies. Argo CD / Flux reconcile cluster state. Every change is versioned, peer-reviewed, and auditable.</p>
+            </div>
+            <div class="glass-card reveal" style="padding:1rem 1.2rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00FF41;font-weight:700;margin-bottom:0.5rem;">🏗️ Infrastructure as Code</div>
+                <p style="font-size:0.78rem;color:#A3C4AA;line-height:1.6;margin:0;">Terraform, CloudFormation, Pulumi, Ansible encode <strong style="color:#E2FFE8;">network, IAM, and compliance controls</strong> as repeatable, reviewable artifacts scanned by Checkov/tfsec before apply.</p>
+            </div>
+            <div class="glass-card reveal" style="padding:1rem 1.2rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00FF41;font-weight:700;margin-bottom:0.5rem;">🛡️ Security as Code</div>
+                <p style="font-size:0.78rem;color:#A3C4AA;line-height:1.6;margin:0;">Security baselines, guardrails, and exception policies captured in <strong style="color:#E2FFE8;">OPA/Rego or Kyverno</strong> rules enforced in CI/CD and Kubernetes admission controllers.</p>
+            </div>
+            <div class="glass-card reveal" style="padding:1rem 1.2rem;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00FF41;font-weight:700;margin-bottom:0.5rem;">✅ Continuous Validation</div>
+                <p style="font-size:0.78rem;color:#A3C4AA;line-height:1.6;margin:0;">Security scans, compliance checks, and risk scoring run on <strong style="color:#E2FFE8;">every pipeline trigger</strong>. Evidence captured automatically for auditors — no manual evidence collection.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 8 — AI/ML IN DEVSECOPS
+══════════════════════════════════════════════════ -->
+<div class="slide slide-8" data-slide="8">
+    <div class="grid-bg"></div>
+    <div class="gradient-mesh">
+        <div class="blob" style="width:440px;height:440px;top:-100px;right:-90px;background:#7C3AED;opacity:0.09;"></div>
+        <div class="blob" style="width:280px;height:280px;bottom:-70px;left:-50px;background:#00FF41;opacity:0.06;"></div>
+        <div class="blob" style="width:200px;height:200px;top:40%;left:10%;background:#FFA500;opacity:0.06;"></div>
+    </div>
+    <div class="scanlines"></div>
+    <div class="content">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;" class="reveal">
+            <div class="badge" style="background:rgba(124,58,237,0.15);color:#A78BFA;border:1px solid rgba(124,58,237,0.3);">AI/ML Impact</div>
+            <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(124,58,237,0.4),transparent);"></div>
+        </div>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.5rem,3.2vw,2.2rem);font-weight:800;color:#A78BFA;margin-bottom:1.1rem;" class="reveal">AI/ML Transforming <span style="color:#5A8A62;">DevSecOps</span></h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;">
+            <div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#A78BFA;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem;" class="reveal">✅ Opportunities</div>
+                <div style="display:flex;flex-direction:column;gap:0.55rem;">
+                    <div class="glass-card reveal" style="padding:0.7rem 1rem;border-color:rgba(124,58,237,0.15);">
+                        <div style="font-size:0.77rem;color:#E2FFE8;font-weight:600;margin-bottom:0.2rem;">🤖 AI-Driven Detection</div>
+                        <p style="font-size:0.74rem;color:#A3C4AA;margin:0;line-height:1.5;">Real-time anomaly detection, threat intel correlation, and log analysis across code, pipelines, and cloud environments at scale.</p>
+                    </div>
+                    <div class="glass-card reveal" style="padding:0.7rem 1rem;border-color:rgba(124,58,237,0.15);">
+                        <div style="font-size:0.77rem;color:#E2FFE8;font-weight:600;margin-bottom:0.2rem;">🎯 Risk Prioritization</div>
+                        <p style="font-size:0.74rem;color:#A3C4AA;margin:0;line-height:1.5;">ML risk graphs correlate SAST, SCA, IaC, API, and runtime data to surface the <strong style="color:#E2FFE8;">critical 1%</strong> with real production exposure.</p>
+                    </div>
+                    <div class="glass-card reveal" style="padding:0.7rem 1rem;border-color:rgba(124,58,237,0.15);">
+                        <div style="font-size:0.77rem;color:#E2FFE8;font-weight:600;margin-bottom:0.2rem;">🔧 AI Remediation Copilots</div>
+                        <p style="font-size:0.74rem;color:#A3C4AA;margin:0;line-height:1.5;">Generate fix recommendations, security tests, and remediation playbooks directly in developer IDE and PR workflows.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#FF5050;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem;" class="reveal">⚠️ Risks</div>
+                <div style="display:flex;flex-direction:column;gap:0.55rem;">
+                    <div class="glass-card reveal" style="padding:0.7rem 1rem;border-color:rgba(255,80,80,0.15);">
+                        <div style="font-size:0.77rem;color:#FF5050;font-weight:600;margin-bottom:0.2rem;">💥 Insecure AI-Generated Code</div>
+                        <p style="font-size:0.74rem;color:#A3C4AA;margin:0;line-height:1.5;"><strong style="color:#E2FFE8;">45–62%</strong> of AI-generated code snippets contain security flaws (XSS, crypto issues, logging). Must pass same SAST/SCA gates.</p>
+                    </div>
+                    <div class="glass-card reveal" style="padding:0.7rem 1rem;border-color:rgba(255,80,80,0.15);">
+                        <div style="font-size:0.77rem;color:#FF5050;font-weight:600;margin-bottom:0.2rem;">👥 Shadow AI</div>
+                        <p style="font-size:0.74rem;color:#A3C4AA;margin:0;line-height:1.5;">Unsanctioned GenAI tools expand the attack surface and leak sensitive data to third-party models. Requires DLP/CASB controls.</p>
+                    </div>
+                    <div class="glass-card reveal" style="padding:0.7rem 1rem;border-color:rgba(255,80,80,0.15);">
+                        <div style="font-size:0.77rem;color:#FF5050;font-weight:600;margin-bottom:0.2rem;">🔐 OWASP LLM Top 10</div>
+                        <p style="font-size:0.74rem;color:#A3C4AA;margin:0;line-height:1.5;">Prompt injection, data exfiltration, insecure plugin ecosystems — AI surfaces new SDLC attack vectors requiring updated governance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     SLIDE 9 — FUTURE / CLOSING
+══════════════════════════════════════════════════ -->
+<div class="slide slide-9" data-slide="9">
+    <div class="grid-bg"></div>
+    <div class="gradient-mesh">
+        <div class="blob" style="width:500px;height:500px;top:-120px;right:-100px;background:#00FF41;opacity:0.1;"></div>
+        <div class="blob" style="width:320px;height:320px;bottom:-80px;left:-60px;background:#00AA2A;opacity:0.09;"></div>
+        <div class="blob" style="width:220px;height:220px;top:40%;left:12%;background:#FFA500;opacity:0.07;"></div>
+    </div>
+    <div class="scanlines"></div>
+    <canvas class="particle-canvas" style="position:absolute;inset:0;z-index:1;width:100%;height:100%;" width="980" height="2050"></canvas>
+    <div class="content">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.4rem;" class="reveal">
+            <div class="badge badge-green">Future Outlook</div>
+            <div style="height:1px;flex:1;background:linear-gradient(90deg,rgba(0,255,65,0.4),transparent);"></div>
+        </div>
+        <h2 style="font-family:'JetBrains Mono',monospace;font-size:clamp(1.5rem,3.2vw,2.2rem);font-weight:800;color:#00FF41;margin-bottom:1.2rem;" class="reveal">Innovations <span style="color:#5A8A62;">&amp; Future of DevSecOps</span></h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem;margin-bottom:1rem;">
+            <div class="glass-card reveal" style="padding:1rem 1.1rem;text-align:center;">
+                <div style="font-size:2rem;margin-bottom:0.5rem;">🤖</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00FF41;font-weight:700;margin-bottom:0.4rem;">Autonomous Security</div>
+                <p style="font-size:0.75rem;color:#A3C4AA;margin:0;line-height:1.5;">Self-healing systems auto-block malicious pods, quarantine workloads, and roll back non-compliant deploys without human intervention</p>
+            </div>
+            <div class="glass-card reveal" style="padding:1rem 1.1rem;text-align:center;">
+                <div style="font-size:2rem;margin-bottom:0.5rem;">🔮</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00FF41;font-weight:700;margin-bottom:0.4rem;">Predictive Security</div>
+                <p style="font-size:0.75rem;color:#A3C4AA;margin:0;line-height:1.5;">Models trained on historical code, CVEs, and incidents flag risky commits and recommend safer patterns before merge</p>
+            </div>
+            <div class="glass-card reveal" style="padding:1rem 1.1rem;text-align:center;">
+                <div style="font-size:2rem;margin-bottom:0.5rem;">🔗</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00FF41;font-weight:700;margin-bottom:0.4rem;">Platform Convergence</div>
+                <p style="font-size:0.75rem;color:#A3C4AA;margin:0;line-height:1.5;">ASPM/code-to-cloud platforms unify toolchains, policies, and evidence across code, cloud, and runtime into a single fabric</p>
+            </div>
+        </div>
+        <div class="glass-card reveal" style="padding:0.9rem 1.3rem;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00FF41;font-weight:700;margin-bottom:0.6rem;">// Enterprise Roadmap: 3 Phases</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.7rem;">
+                <div style="display:flex;align-items:flex-start;gap:0.6rem;">
+                    <div style="background:linear-gradient(135deg,#00FF41,#00CC33);color:#000;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.65rem;flex-shrink:0;margin-top:1px;">1</div>
+                    <p style="font-size:0.74rem;color:#A3C4AA;margin:0;line-height:1.5;"><strong style="color:#E2FFE8;">Standardize</strong> CI/CD, GitOps, and IaC tooling. Codify security policies.</p>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:0.6rem;">
+                    <div style="background:linear-gradient(135deg,#FFA500,#CC8400);color:#000;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.65rem;flex-shrink:0;margin-top:1px;">2</div>
+                    <p style="font-size:0.74rem;color:#A3C4AA;margin:0;line-height:1.5;"><strong style="color:#E2FFE8;">Consolidate</strong> via ASPM/CNAPP. Introduce AI-driven triage in low-risk domains.</p>
+                </div>
+                <div style="display:flex;align-items:flex-start;gap:0.6rem;">
+                    <div style="background:linear-gradient(135deg,#7C3AED,#5B21B6);color:#fff;border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.65rem;flex-shrink:0;margin-top:1px;">3</div>
+                    <p style="font-size:0.74rem;color:#A3C4AA;margin:0;line-height:1.5;"><strong style="color:#E2FFE8;">Adopt</strong> autonomous remediation &amp; predictive security at scale.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div><!-- end .deck -->
+
+<!-- NAV -->
+<div class="nav-controls">
+    <button class="nav-btn">‹</button>
+    <div class="slide-dots" id="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+    <button class="nav-btn">›</button>
+    <span class="slide-counter" id="counter">1 / 9</span>
+</div>
+
+
+
+</body></html>
+------MultipartBoundary--ueScPJTZJLqc8voFIVVzMzh0xvALM0sfxAXNHs6lc0----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap
+
+@charset "utf-8";
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+1F00-1FFF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: Inter; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD2OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD_OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD4OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD0OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD1OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 300; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD2OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD_OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD4OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD0OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD1OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD2OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD_OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD4OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD0OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD1OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD2OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD_OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD4OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD0OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD1OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD2OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD_OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD4OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD0OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD1OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 700; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 800; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD2OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+460-52F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 800; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD_OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+301, U+400-45F, U+490-491, U+4B0-4B1, U+2116; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 800; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD4OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+370-377, U+37A-37F, U+384-38A, U+38C, U+38E-3A1, U+3A3-3FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 800; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD0OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+102-103, U+110-111, U+128-129, U+168-169, U+1A0-1A1, U+1AF-1B0, U+300-301, U+303-304, U+308-309, U+323, U+329, U+1EA0-1EF9, U+20AB; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 800; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD1OwGtT0rU3BE.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-weight: 800; font-display: swap; src: url("https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbV2o-flEEny0FZhsfKu5WU4xD7OwGtT0rU.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+------MultipartBoundary--ueScPJTZJLqc8voFIVVzMzh0xvALM0sfxAXNHs6lc0----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-53f84c4d-311e-40fa-8703-93acbf731657@mhtml.blink
+
+@charset "utf-8";
+
+:root { --color-bg: #0A0A0A; --color-text: #E2FFE8; --glow-color-rgb: 0,255,65; }
+
+*, ::before, ::after { box-sizing: border-box; }
+
+html, body { background: var(--color-bg); margin: 0px; }
+
+body { font-family: Inter, sans-serif; color: var(--color-text); overflow: hidden; height: 100vh; width: 100vw; }
+
+.deck { width: 100vw; height: 100vh; position: relative; }
+
+.slide { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: var(--color-bg); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transform: scale(0.97); transition: opacity 0.65s, transform 0.65s; pointer-events: none; overflow: hidden; }
+
+.slide.active { opacity: 1; transform: scale(1); pointer-events: all; }
+
+.slide > .content { position: relative; z-index: 2; width: 100%; max-width: 1100px; padding: clamp(1.5rem, 3.5vw, 3.5rem); }
+
+.nav-controls { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; z-index: 100; background: rgba(0, 255, 65, 0.04); backdrop-filter: blur(12px); padding: 10px 24px; border-radius: 40px; border: 1px solid rgba(0, 255, 65, 0.15); }
+
+.nav-btn { width: 38px; height: 38px; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; background: rgba(0, 255, 65, 0.06); color: rgb(0, 255, 65); border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+
+.nav-btn:hover { background: rgba(0, 255, 65, 0.15); }
+
+.slide-dots { display: flex; gap: 8px; }
+
+.slide-dots .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0, 255, 65, 0.2); cursor: pointer; transition: background 0.3s, transform 0.3s; }
+
+.slide-dots .dot.active { background: rgb(0, 255, 65); transform: scale(1.35); }
+
+.slide-counter { font-size: 0.75rem; color: rgb(90, 138, 98); min-width: 40px; text-align: center; font-family: "JetBrains Mono", monospace; }
+
+.reveal { opacity: 0; transform: translateY(18px); }
+
+.text-glow { text-shadow: rgba(0, 255, 65, 0.55) 0px 0px 18px, rgba(0, 255, 65, 0.2) 0px 0px 36px; }
+
+.stat-glow { text-shadow: rgba(0, 255, 65, 0.65) 0px 0px 28px, rgba(0, 255, 65, 0.25) 0px 0px 55px; }
+
+@keyframes glow-pulse { 
+  0%, 100% { text-shadow: rgba(0, 255, 65, 0.5) 0px 0px 18px, rgba(0, 255, 65, 0.2) 0px 0px 36px; }
+  50% { text-shadow: rgba(0, 255, 65, 0.9) 0px 0px 30px, rgba(0, 255, 65, 0.35) 0px 0px 60px; }
+}
+
+.glow-pulse { animation: 2.8s ease-in-out 0s infinite normal none running glow-pulse; }
+
+@keyframes float-slow { 
+  0% { transform: translate(0px, 0px) scale(1); }
+  25% { transform: translate(55px, -45px) scale(1.1); }
+  50% { transform: translate(-35px, 38px) scale(0.92); }
+  75% { transform: translate(48px, 18px) scale(1.07); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float-drift { 
+  0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+  33% { transform: translate(-48px, -55px) scale(1.14) rotate(3deg); }
+  66% { transform: translate(38px, 28px) scale(0.87) rotate(-2deg); }
+  100% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+}
+
+@keyframes float { 
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-14px); }
+}
+
+.gradient-mesh { position: absolute; inset: 0px; z-index: 0; overflow: hidden; pointer-events: none; }
+
+.blob { position: absolute; border-radius: 50%; filter: blur(80px); animation: 10s ease-in-out 0s infinite normal none running float-slow; }
+
+.blob:nth-child(2) { animation: 14s ease-in-out 0s infinite normal none running float-drift; }
+
+.blob:nth-child(3) { animation: 18s ease-in-out 0s infinite reverse none running float-slow; }
+
+.slide::before { content: ""; position: absolute; inset: 0px; z-index: 1; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); background-repeat: repeat; background-size: 256px 256px; opacity: 0.04; mix-blend-mode: overlay; }
+
+.slide::after { content: ""; position: absolute; inset: 0px; z-index: 1; pointer-events: none; background: radial-gradient(transparent 45%, rgba(0, 0, 0, 0.55) 100%); }
+
+.scanlines { position: absolute; inset: 0px; z-index: 1; pointer-events: none; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 65, 0.016) 2px, rgba(0, 255, 65, 0.016) 4px); }
+
+.grid-bg { position: absolute; inset: 0px; z-index: 0; pointer-events: none; background-image: linear-gradient(rgba(0, 255, 65, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 65, 0.04) 1px, transparent 1px); background-size: 60px 60px; }
+
+.glass-card { background: rgba(0, 255, 65, 0.04); backdrop-filter: blur(10px); border: 1px solid rgba(0, 255, 65, 0.12); border-radius: 12px; }
+
+.accent-card { border-left: 3px solid rgb(0, 255, 65); background: rgba(0, 255, 65, 0.03); border-radius: 0px 10px 10px 0px; }
+
+.orange-card { border-left: 3px solid rgb(255, 165, 0); background: rgba(255, 165, 0, 0.04); border-radius: 0px 10px 10px 0px; }
+
+.bar-track { background: rgba(0, 255, 65, 0.08); border-radius: 4px; height: 22px; overflow: hidden; }
+
+.bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, rgb(0, 255, 65), rgb(0, 204, 51)); width: 0%; transition: width 0.8s; }
+
+.stat-line { display: flex; align-items: baseline; gap: 0.35rem; }
+
+.pipeline-node { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+
+.pipeline-arrow { color: rgb(0, 255, 65); font-size: 1.1rem; line-height: 1; }
+
+.badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; font-family: "JetBrains Mono", monospace; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+.badge-green { background: rgba(0, 255, 65, 0.12); color: rgb(0, 255, 65); border: 1px solid rgba(0, 255, 65, 0.25); }
+
+.badge-orange { background: rgba(255, 165, 0, 0.12); color: rgb(255, 165, 0); border: 1px solid rgba(255, 165, 0, 0.3); }
+
+.badge-red { background: rgba(255, 80, 80, 0.12); color: rgb(255, 80, 80); border: 1px solid rgba(255, 80, 80, 0.3); }
+
+.deco-shape { position: absolute; border-radius: 50%; pointer-events: none; }
+
+.mouse-spotlight { position: fixed; inset: 0px; z-index: 99; pointer-events: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation-duration: 0.01ms !important; transition-duration: 0.2s !important; }
+}
+------MultipartBoundary--ueScPJTZJLqc8voFIVVzMzh0xvALM0sfxAXNHs6lc0----
+Content-Type: text/css
+Content-Transfer-Encoding: binary
+Content-Location: cid:css-714af006-f788-4a05-82ab-2b4e46ac9ee0@mhtml.blink
+
+@charset "utf-8";
+
+@layer theme, base, components, utilities;
+
+@layer theme {
+  :root, :host { --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji'; --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace; --default-font-family: var(--font-sans); --default-mono-font-family: var(--font-mono); }
+}
+
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button { box-sizing: border-box; margin: 0px; padding: 0px; border: 0px solid; }
+  html, :host { line-height: 1.5; text-size-adjust: 100%; tab-size: 4; font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'); font-feature-settings: var(--default-font-feature-settings, normal); font-variation-settings: var(--default-font-variation-settings, normal); -webkit-tap-highlight-color: transparent; }
+  hr { height: 0px; color: inherit; border-top-width: 1px; }
+  abbr:where([title]) { text-decoration: underline dotted; }
+  h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
+  a { color: inherit; text-decoration: inherit; }
+  b, strong { font-weight: bolder; }
+  code, kbd, samp, pre { font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace); font-feature-settings: var(--default-mono-font-feature-settings, normal); font-variation-settings: var(--default-mono-font-variation-settings, normal); font-size: 1em; }
+  small { font-size: 80%; }
+  sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+  sub { bottom: -0.25em; }
+  sup { top: -0.5em; }
+  table { text-indent: 0px; border-color: inherit; border-collapse: collapse; }
+  progress { vertical-align: baseline; }
+  summary { display: list-item; }
+  ol, ul, menu { list-style: none; }
+  img, svg, video, canvas, audio, iframe, embed, object { display: block; vertical-align: middle; }
+  img, video { max-width: 100%; height: auto; }
+  button, input, select, optgroup, textarea, ::file-selector-button { font: inherit; letter-spacing: inherit; color: inherit; border-radius: 0px; background-color: transparent; opacity: 1; }
+  :where(select:is([multiple], [size])) optgroup { font-weight: bolder; }
+  :where(select:is([multiple], [size])) optgroup option { padding-inline-start: 20px; }
+  ::file-selector-button { margin-inline-end: 4px; }
+  ::placeholder { opacity: 1; }
+  @supports (not (-webkit-appearance: -apple-pay-button)) or (contain-intrinsic-size: 1px) {
+  ::placeholder {
+  color: currentcolor;
+  @supports (color: color-mix(in lab, red, red)) {
+  color: color-mix(currentcolor, transparent);
+}
+}
+}
+  textarea { resize: vertical; }
+  ::-webkit-search-decoration { appearance: none; }
+  ::-webkit-date-and-time-value { min-height: 1lh; text-align: inherit; }
+  ::-webkit-datetime-edit { display: inline-flex; }
+  ::-webkit-datetime-edit-fields-wrapper { padding: 0px; }
+  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field { padding-block: 0px; }
+  ::-webkit-calendar-picker-indicator { line-height: 1; }
+  button, input:where([type="button"], [type="reset"], [type="submit"]), ::file-selector-button { appearance: button; }
+  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button { height: auto; }
+  [hidden]:where(:not([hidden="until-found"])) { display: none !important; }
+}
+
+@layer utilities {
+  .text-center { text-align: center; }
+}
+------MultipartBoundary--ueScPJTZJLqc8voFIVVzMzh0xvALM0sfxAXNHs6lc0------
